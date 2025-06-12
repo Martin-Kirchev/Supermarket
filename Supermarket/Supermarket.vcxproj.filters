@@ -13,75 +13,93 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\Products">
+      <UniqueIdentifier>{bd9b8247-eb41-41a1-8543-697495b0e72b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Products">
+      <UniqueIdentifier>{ce7e2e8f-3f52-426b-a588-4b3df8572c47}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Workers">
+      <UniqueIdentifier>{24f3e6aa-e553-42c8-867f-3564c92c5dab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Workers">
+      <UniqueIdentifier>{66928eb6-b86a-4372-8739-c81387012f5d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Utils">
+      <UniqueIdentifier>{24cbe90b-7a41-4f59-bc6c-1773fdb80b7d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utils">
+      <UniqueIdentifier>{32fb7441-eb9a-4bb0-ac35-c9615a21c87e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="my_string.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="BaseWorker.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Cashier.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Manager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Warning.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="BaseProducts.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Category.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ProductsByUnit.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ProductsByWeight.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="SupermarketSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="BaseProducts.cpp">
+      <Filter>Source Files\Products</Filter>
+    </ClCompile>
+    <ClCompile Include="ProductsByUnit.cpp">
+      <Filter>Source Files\Products</Filter>
+    </ClCompile>
+    <ClCompile Include="ProductsByWeight.cpp">
+      <Filter>Source Files\Products</Filter>
+    </ClCompile>
+    <ClCompile Include="Cashier.cpp">
+      <Filter>Source Files\Workers</Filter>
+    </ClCompile>
+    <ClCompile Include="Manager.cpp">
+      <Filter>Source Files\Workers</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseWorker.cpp">
+      <Filter>Source Files\Workers</Filter>
+    </ClCompile>
+    <ClCompile Include="my_string.cpp">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Warning.cpp">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Category.cpp">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="my_string.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="my_vector.hpp">
+    <ClInclude Include="SupermarketSystem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="BaseWorker.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Workers</Filter>
     </ClInclude>
     <ClInclude Include="Cashier.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Workers</Filter>
     </ClInclude>
     <ClInclude Include="Manager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Warning.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Workers</Filter>
     </ClInclude>
     <ClInclude Include="BaseProducts.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Category.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Products</Filter>
     </ClInclude>
     <ClInclude Include="ProductsByUnit.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Products</Filter>
     </ClInclude>
     <ClInclude Include="ProductsByWeight.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Products</Filter>
     </ClInclude>
-    <ClInclude Include="SupermarketSystem.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="my_vector.hpp">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="my_string.h">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Warning.h">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Category.h">
+      <Filter>Header Files\Utils</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
