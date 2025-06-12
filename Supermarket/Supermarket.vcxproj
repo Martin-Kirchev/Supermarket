@@ -123,11 +123,30 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="C:\Users\Martin K\Downloads\my_string.cpp" />
-    <ClCompile Include="Supermarket.cpp" />
+    <ClCompile Include="BaseProducts.cpp" />
+    <ClCompile Include="Cashier.cpp" />
+    <ClCompile Include="Category.cpp" />
+    <ClCompile Include="Manager.cpp" />
+    <ClCompile Include="my_string.cpp" />
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="ProductsByUnit.cpp" />
+    <ClCompile Include="ProductsByWeight.cpp" />
+    <ClCompile Include="SupermarketSystem.cpp" />
+    <ClCompile Include="Warning.cpp" />
+    <ClCompile Include="BaseWorker.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="C:\Users\Martin K\Downloads\my_string.h" />
+    <ClInclude Include="BaseProducts.h" />
+    <ClInclude Include="Cashier.h" />
+    <ClInclude Include="Category.h" />
+    <ClInclude Include="Manager.h" />
+    <ClInclude Include="my_string.h" />
+    <ClInclude Include="my_vector.hpp" />
+    <ClInclude Include="ProductsByUnit.h" />
+    <ClInclude Include="ProductsByWeight.h" />
+    <ClInclude Include="SupermarketSystem.h" />
+    <ClInclude Include="Warning.h" />
+    <ClInclude Include="BaseWorker.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
