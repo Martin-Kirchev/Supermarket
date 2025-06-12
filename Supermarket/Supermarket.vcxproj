@@ -123,27 +123,35 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AllProductsGiftCard.cpp" />
     <ClCompile Include="BaseProducts.cpp" />
+    <ClCompile Include="BaseGiftCard.cpp" />
     <ClCompile Include="Cashier.cpp" />
     <ClCompile Include="Category.cpp" />
     <ClCompile Include="Manager.cpp" />
+    <ClCompile Include="MultipleCategoryGiftCard.cpp" />
     <ClCompile Include="my_string.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="ProductsByUnit.cpp" />
     <ClCompile Include="ProductsByWeight.cpp" />
+    <ClCompile Include="SingleCategoryGiftCard.cpp" />
     <ClCompile Include="SupermarketSystem.cpp" />
     <ClCompile Include="Warning.cpp" />
     <ClCompile Include="BaseWorker.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AllProductsGiftCard.h" />
     <ClInclude Include="BaseProducts.h" />
+    <ClInclude Include="BaseGiftCard.h" />
     <ClInclude Include="Cashier.h" />
     <ClInclude Include="Category.h" />
     <ClInclude Include="Manager.h" />
+    <ClInclude Include="MultipleCategoryGiftCard.h" />
     <ClInclude Include="my_string.h" />
     <ClInclude Include="my_vector.hpp" />
     <ClInclude Include="ProductsByUnit.h" />
     <ClInclude Include="ProductsByWeight.h" />
+    <ClInclude Include="SingleCategoryGiftCard.h" />
     <ClInclude Include="SupermarketSystem.h" />
     <ClInclude Include="Warning.h" />
     <ClInclude Include="BaseWorker.h" />

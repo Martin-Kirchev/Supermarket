@@ -1,2 +1,2 @@
 
-#include "GiftCard.h"
+#include "BaseGiftCard.h"
