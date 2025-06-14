@@ -6,7 +6,10 @@
 int main()
 {
 
-	int course = 10;
+	BaseGiftCard b1 = BaseGiftCard();
+	BaseGiftCard b2 = BaseGiftCard();
+	BaseGiftCard b3 = BaseGiftCard();
+	BaseGiftCard b4 = BaseGiftCard();	
 
 }
 

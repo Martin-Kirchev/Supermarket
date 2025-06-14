@@ -1,6 +1,7 @@
 
 #pragma once
 
+#include "Random.hpp"
 #include "my_string.h"
 
 class BaseWorker {

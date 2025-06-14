@@ -151,6 +151,7 @@
     <ClInclude Include="my_vector.hpp" />
     <ClInclude Include="ProductByUnit.h" />
     <ClInclude Include="ProductByWeight.h" />
+    <ClInclude Include="Random.hpp" />
     <ClInclude Include="SingleCategoryGiftCard.h" />
     <ClInclude Include="SupermarketSystem.h" />
     <ClInclude Include="Warning.h" />
