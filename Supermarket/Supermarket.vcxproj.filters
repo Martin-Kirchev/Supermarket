@@ -31,10 +31,10 @@
     <Filter Include="Source Files\Utils">
       <UniqueIdentifier>{32fb7441-eb9a-4bb0-ac35-c9615a21c87e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Vouchers">
+    <Filter Include="Source Files\GiftCards">
       <UniqueIdentifier>{f9ce2a12-1559-41a5-aecf-4b39266b553e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Vouchers">
+    <Filter Include="Header Files\GiftCards">
       <UniqueIdentifier>{57d56177-e2bf-4cf5-9d2e-c83cb331c2ed}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -45,13 +45,13 @@
     <ClCompile Include="SupermarketSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="BaseProducts.cpp">
+    <ClCompile Include="BaseProduct.cpp">
       <Filter>Source Files\Products</Filter>
     </ClCompile>
-    <ClCompile Include="ProductsByUnit.cpp">
+    <ClCompile Include="ProductByUnit.cpp">
       <Filter>Source Files\Products</Filter>
     </ClCompile>
-    <ClCompile Include="ProductsByWeight.cpp">
+    <ClCompile Include="ProductByWeight.cpp">
       <Filter>Source Files\Products</Filter>
     </ClCompile>
     <ClCompile Include="Cashier.cpp">
@@ -73,16 +73,16 @@
       <Filter>Source Files\Utils</Filter>
     </ClCompile>
     <ClCompile Include="BaseGiftCard.cpp">
-      <Filter>Source Files\Vouchers</Filter>
+      <Filter>Source Files\GiftCards</Filter>
     </ClCompile>
     <ClCompile Include="SingleCategoryGiftCard.cpp">
-      <Filter>Source Files\Vouchers</Filter>
+      <Filter>Source Files\GiftCards</Filter>
     </ClCompile>
     <ClCompile Include="MultipleCategoryGiftCard.cpp">
-      <Filter>Source Files\Vouchers</Filter>
+      <Filter>Source Files\GiftCards</Filter>
     </ClCompile>
     <ClCompile Include="AllProductsGiftCard.cpp">
-      <Filter>Source Files\Vouchers</Filter>
+      <Filter>Source Files\GiftCards</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -98,13 +98,13 @@
     <ClInclude Include="Manager.h">
       <Filter>Header Files\Workers</Filter>
     </ClInclude>
-    <ClInclude Include="BaseProducts.h">
+    <ClInclude Include="BaseProduct.h">
       <Filter>Header Files\Products</Filter>
     </ClInclude>
-    <ClInclude Include="ProductsByUnit.h">
+    <ClInclude Include="ProductByUnit.h">
       <Filter>Header Files\Products</Filter>
     </ClInclude>
-    <ClInclude Include="ProductsByWeight.h">
+    <ClInclude Include="ProductByWeight.h">
       <Filter>Header Files\Products</Filter>
     </ClInclude>
     <ClInclude Include="my_vector.hpp">
@@ -120,16 +120,19 @@
       <Filter>Header Files\Utils</Filter>
     </ClInclude>
     <ClInclude Include="BaseGiftCard.h">
-      <Filter>Header Files\Vouchers</Filter>
+      <Filter>Header Files\GiftCards</Filter>
     </ClInclude>
     <ClInclude Include="SingleCategoryGiftCard.h">
-      <Filter>Header Files\Vouchers</Filter>
+      <Filter>Header Files\GiftCards</Filter>
     </ClInclude>
     <ClInclude Include="MultipleCategoryGiftCard.h">
-      <Filter>Header Files\Vouchers</Filter>
+      <Filter>Header Files\GiftCards</Filter>
     </ClInclude>
     <ClInclude Include="AllProductsGiftCard.h">
-      <Filter>Header Files\Vouchers</Filter>
+      <Filter>Header Files\GiftCards</Filter>
+    </ClInclude>
+    <ClInclude Include="WarningLevel.hpp">
+      <Filter>Header Files\Utils</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

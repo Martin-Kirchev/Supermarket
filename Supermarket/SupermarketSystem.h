@@ -3,8 +3,9 @@
 
 #include "Cashier.h"
 #include "Manager.h"
-#include "ProductsByUnit.h"
-#include "ProductsByWeight.h"
+#include "ProductByUnit.h"
+#include "ProductByWeight.h"
+#include "SingleCategoryGiftCard.h"
+#include "MultipleCategoryGiftCard.h"
+#include "AllProductsGiftCard.h"
 
-#include "my_string.h"
-#include "my_vector.hpp"
