@@ -8,13 +8,16 @@ class BaseWorker {
 public:
 
 	BaseWorker() = default;
-	BaseWorker(const size_t ID, const my_string firstName, const my_string lastName, const my_string phoneNumber, const size_t age, const my_string password);
+	BaseWorker(const size_t& ID, const my_string& firstName, const my_string& lastName, const my_string& phoneNumber, const size_t& age, const my_string& password);
 	BaseWorker(const BaseWorker& other) = default;
 	virtual ~BaseWorker() = 0;
 
 	virtual BaseWorker& operator=(const BaseWorker& other) = default;
 
-protected :
+	size_t getID() const;
+	my_string getPassword() const;
+
+private:
 
 	size_t ID = 0;
 	my_string firstName;

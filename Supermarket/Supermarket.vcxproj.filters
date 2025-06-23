@@ -5,140 +5,76 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
     <Filter Include="Resource Files">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
-    <Filter Include="Header Files\Products">
-      <UniqueIdentifier>{bd9b8247-eb41-41a1-8543-697495b0e72b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Products">
-      <UniqueIdentifier>{ce7e2e8f-3f52-426b-a588-4b3df8572c47}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Workers">
-      <UniqueIdentifier>{24f3e6aa-e553-42c8-867f-3564c92c5dab}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Workers">
-      <UniqueIdentifier>{66928eb6-b86a-4372-8739-c81387012f5d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Utils">
-      <UniqueIdentifier>{24cbe90b-7a41-4f59-bc6c-1773fdb80b7d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Utils">
-      <UniqueIdentifier>{32fb7441-eb9a-4bb0-ac35-c9615a21c87e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\GiftCards">
-      <UniqueIdentifier>{f9ce2a12-1559-41a5-aecf-4b39266b553e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\GiftCards">
-      <UniqueIdentifier>{57d56177-e2bf-4cf5-9d2e-c83cb331c2ed}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="SupermarketSystem.cpp">
+    <ClCompile Include="GiftCards\AllProductsGiftCard\AllProductsGiftCard.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="BaseProduct.cpp">
-      <Filter>Source Files\Products</Filter>
+    <ClCompile Include="GiftCards\BaseGiftCard\BaseGiftCard.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ProductByUnit.cpp">
-      <Filter>Source Files\Products</Filter>
+    <ClCompile Include="GiftCards\MultipleCategoryGiftCard\MultipleCategoryGiftCard.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ProductByWeight.cpp">
-      <Filter>Source Files\Products</Filter>
+    <ClCompile Include="GiftCards\SingleCategoryGiftCard\SingleCategoryGiftCard.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Cashier.cpp">
-      <Filter>Source Files\Workers</Filter>
+    <ClCompile Include="Products\BaseProduct\BaseProduct.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Manager.cpp">
-      <Filter>Source Files\Workers</Filter>
+    <ClCompile Include="Products\ProductByUnit\ProductByUnit.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="BaseWorker.cpp">
-      <Filter>Source Files\Workers</Filter>
+    <ClCompile Include="Products\ProductByWeight\ProductByWeight.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="my_string.cpp">
-      <Filter>Source Files\Utils</Filter>
+    <ClCompile Include="Supermarket System\SupermarketSystem.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Warning.cpp">
-      <Filter>Source Files\Utils</Filter>
+    <ClCompile Include="Utils\Class Helpers\Category\Category.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Category.cpp">
-      <Filter>Source Files\Utils</Filter>
+    <ClCompile Include="Utils\Class Helpers\Warning\Warning.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="BaseGiftCard.cpp">
-      <Filter>Source Files\GiftCards</Filter>
+    <ClCompile Include="Utils\My Structures\my_string.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="SingleCategoryGiftCard.cpp">
-      <Filter>Source Files\GiftCards</Filter>
+    <ClCompile Include="Workers\BaseWorker\BaseWorker.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MultipleCategoryGiftCard.cpp">
-      <Filter>Source Files\GiftCards</Filter>
+    <ClCompile Include="Workers\Cashier\Cashier.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="AllProductsGiftCard.cpp">
-      <Filter>Source Files\GiftCards</Filter>
-    </ClCompile>
-    <ClCompile Include="IntegerFunction.hpp">
-      <Filter>Header Files\Utils</Filter>
+    <ClCompile Include="Workers\Manager\Manager.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="SupermarketSystem.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="BaseWorker.h">
-      <Filter>Header Files\Workers</Filter>
-    </ClInclude>
-    <ClInclude Include="Cashier.h">
-      <Filter>Header Files\Workers</Filter>
-    </ClInclude>
-    <ClInclude Include="Manager.h">
-      <Filter>Header Files\Workers</Filter>
-    </ClInclude>
-    <ClInclude Include="BaseProduct.h">
-      <Filter>Header Files\Products</Filter>
-    </ClInclude>
-    <ClInclude Include="ProductByUnit.h">
-      <Filter>Header Files\Products</Filter>
-    </ClInclude>
-    <ClInclude Include="ProductByWeight.h">
-      <Filter>Header Files\Products</Filter>
-    </ClInclude>
-    <ClInclude Include="my_vector.hpp">
-      <Filter>Header Files\Utils</Filter>
-    </ClInclude>
-    <ClInclude Include="my_string.h">
-      <Filter>Header Files\Utils</Filter>
-    </ClInclude>
-    <ClInclude Include="Warning.h">
-      <Filter>Header Files\Utils</Filter>
-    </ClInclude>
-    <ClInclude Include="Category.h">
-      <Filter>Header Files\Utils</Filter>
-    </ClInclude>
-    <ClInclude Include="BaseGiftCard.h">
-      <Filter>Header Files\GiftCards</Filter>
-    </ClInclude>
-    <ClInclude Include="SingleCategoryGiftCard.h">
-      <Filter>Header Files\GiftCards</Filter>
-    </ClInclude>
-    <ClInclude Include="MultipleCategoryGiftCard.h">
-      <Filter>Header Files\GiftCards</Filter>
-    </ClInclude>
-    <ClInclude Include="AllProductsGiftCard.h">
-      <Filter>Header Files\GiftCards</Filter>
-    </ClInclude>
-    <ClInclude Include="WarningLevel.hpp">
-      <Filter>Header Files\Utils</Filter>
-    </ClInclude>
-    <ClInclude Include="Random.hpp">
-      <Filter>Header Files\Utils</Filter>
-    </ClInclude>
+    <ClInclude Include="GiftCards\AllProductsGiftCard\AllProductsGiftCard.h" />
+    <ClInclude Include="GiftCards\BaseGiftCard\BaseGiftCard.h" />
+    <ClInclude Include="GiftCards\MultipleCategoryGiftCard\MultipleCategoryGiftCard.h" />
+    <ClInclude Include="GiftCards\SingleCategoryGiftCard\SingleCategoryGiftCard.h" />
+    <ClInclude Include="Products\BaseProduct\BaseProduct.h" />
+    <ClInclude Include="Products\ProductByUnit\ProductByUnit.h" />
+    <ClInclude Include="Products\ProductByWeight\ProductByWeight.h" />
+    <ClInclude Include="Supermarket System\SupermarketSystem.h" />
+    <ClInclude Include="Utils\Class Helpers\Category\Category.h" />
+    <ClInclude Include="Utils\Class Helpers\Other\IntegerFunction.hpp" />
+    <ClInclude Include="Utils\Class Helpers\Other\Random.hpp" />
+    <ClInclude Include="Utils\Class Helpers\Warning\Warning.h" />
+    <ClInclude Include="Utils\Class Helpers\Warning\WarningLevel.hpp" />
+    <ClInclude Include="Utils\My Structures\my_string.h" />
+    <ClInclude Include="Utils\My Structures\my_vector.hpp" />
+    <ClInclude Include="Workers\BaseWorker\BaseWorker.h" />
+    <ClInclude Include="Workers\Cashier\Cashier.h" />
+    <ClInclude Include="Workers\Manager\Manager.h" />
   </ItemGroup>
 </Project>

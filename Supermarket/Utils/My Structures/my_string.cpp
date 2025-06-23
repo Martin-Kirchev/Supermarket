@@ -146,14 +146,12 @@ void my_string::pushInteger(size_t number) {
 
 	int digitCount = IntegerFunction::getDigitsCount(number);
 
-	for (size_t i = 0; i < digitCount; i++)
+	for (size_t i = 1; i <= digitCount; i++)
 	{
-		int divider = IntegerFunction::powerOf(10, digitCount - i);
-		char digit = '0' + number / divider;
+		size_t divider = IntegerFunction::powerOf(10, digitCount - i);
+		char digit = '0' + ((number / divider) % 10);
 
 		push(digit);
-
-		number /= 10;
 	}
 
 	return;

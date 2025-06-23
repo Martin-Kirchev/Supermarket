@@ -123,41 +123,41 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="AllProductsGiftCard.cpp" />
-    <ClCompile Include="BaseProduct.cpp" />
-    <ClCompile Include="BaseGiftCard.cpp" />
-    <ClCompile Include="Cashier.cpp" />
-    <ClCompile Include="Category.cpp" />
-    <ClCompile Include="IntegerFunction.hpp" />
-    <ClCompile Include="Manager.cpp" />
-    <ClCompile Include="MultipleCategoryGiftCard.cpp" />
-    <ClCompile Include="my_string.cpp" />
+    <ClCompile Include="GiftCards\AllProductsGiftCard\AllProductsGiftCard.cpp" />
+    <ClCompile Include="GiftCards\BaseGiftCard\BaseGiftCard.cpp" />
+    <ClCompile Include="GiftCards\MultipleCategoryGiftCard\MultipleCategoryGiftCard.cpp" />
+    <ClCompile Include="GiftCards\SingleCategoryGiftCard\SingleCategoryGiftCard.cpp" />
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="ProductByUnit.cpp" />
-    <ClCompile Include="ProductByWeight.cpp" />
-    <ClCompile Include="SingleCategoryGiftCard.cpp" />
-    <ClCompile Include="SupermarketSystem.cpp" />
-    <ClCompile Include="Warning.cpp" />
-    <ClCompile Include="BaseWorker.cpp" />
+    <ClCompile Include="Products\BaseProduct\BaseProduct.cpp" />
+    <ClCompile Include="Products\ProductByUnit\ProductByUnit.cpp" />
+    <ClCompile Include="Products\ProductByWeight\ProductByWeight.cpp" />
+    <ClCompile Include="Supermarket System\SupermarketSystem.cpp" />
+    <ClCompile Include="Utils\Class Helpers\Category\Category.cpp" />
+    <ClCompile Include="Utils\Class Helpers\Warning\Warning.cpp" />
+    <ClCompile Include="Utils\My Structures\my_string.cpp" />
+    <ClCompile Include="Workers\BaseWorker\BaseWorker.cpp" />
+    <ClCompile Include="Workers\Cashier\Cashier.cpp" />
+    <ClCompile Include="Workers\Manager\Manager.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AllProductsGiftCard.h" />
-    <ClInclude Include="BaseProduct.h" />
-    <ClInclude Include="BaseGiftCard.h" />
-    <ClInclude Include="Cashier.h" />
-    <ClInclude Include="Category.h" />
-    <ClInclude Include="Manager.h" />
-    <ClInclude Include="MultipleCategoryGiftCard.h" />
-    <ClInclude Include="my_string.h" />
-    <ClInclude Include="my_vector.hpp" />
-    <ClInclude Include="ProductByUnit.h" />
-    <ClInclude Include="ProductByWeight.h" />
-    <ClInclude Include="Random.hpp" />
-    <ClInclude Include="SingleCategoryGiftCard.h" />
-    <ClInclude Include="SupermarketSystem.h" />
-    <ClInclude Include="Warning.h" />
-    <ClInclude Include="BaseWorker.h" />
-    <ClInclude Include="WarningLevel.hpp" />
+    <ClInclude Include="GiftCards\AllProductsGiftCard\AllProductsGiftCard.h" />
+    <ClInclude Include="GiftCards\BaseGiftCard\BaseGiftCard.h" />
+    <ClInclude Include="GiftCards\MultipleCategoryGiftCard\MultipleCategoryGiftCard.h" />
+    <ClInclude Include="GiftCards\SingleCategoryGiftCard\SingleCategoryGiftCard.h" />
+    <ClInclude Include="Products\BaseProduct\BaseProduct.h" />
+    <ClInclude Include="Products\ProductByUnit\ProductByUnit.h" />
+    <ClInclude Include="Products\ProductByWeight\ProductByWeight.h" />
+    <ClInclude Include="Supermarket System\SupermarketSystem.h" />
+    <ClInclude Include="Utils\Class Helpers\Category\Category.h" />
+    <ClInclude Include="Utils\Class Helpers\Other\IntegerFunction.hpp" />
+    <ClInclude Include="Utils\Class Helpers\Other\Random.hpp" />
+    <ClInclude Include="Utils\Class Helpers\Warning\Warning.h" />
+    <ClInclude Include="Utils\Class Helpers\Warning\WarningLevel.hpp" />
+    <ClInclude Include="Utils\My Structures\my_string.h" />
+    <ClInclude Include="Utils\My Structures\my_vector.hpp" />
+    <ClInclude Include="Workers\BaseWorker\BaseWorker.h" />
+    <ClInclude Include="Workers\Cashier\Cashier.h" />
+    <ClInclude Include="Workers\Manager\Manager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

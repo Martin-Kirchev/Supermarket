@@ -9,7 +9,7 @@ class Warning {
 public:
 
 	Warning() = default;
-	Warning(const my_string sender, const my_string description, const WarningLevel warningLevel);
+	Warning(const my_string& sender, const my_string& description, const WarningLevel& warningLevel);
 	Warning(const Warning& other) = default;
 	~Warning() = default;
 
