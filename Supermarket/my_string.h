@@ -2,6 +2,7 @@
 #pragma once
 
 #include <iostream>
+#include "IntegerFunction.hpp"
 
 using namespace std;
 
@@ -37,6 +38,9 @@ public:
 
 	friend istream& operator>>(istream& in, my_string& str);
 
+	void push(const char character);
+
+	void pushInteger(size_t number);
 };
 
 my_string operator+(const my_string& lhs, const my_string& rhs);

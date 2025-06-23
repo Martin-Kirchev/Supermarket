@@ -5,11 +5,12 @@
 
 int main()
 {
+	
+	my_string str = "TESTSTR";
 
-	BaseGiftCard b1 = BaseGiftCard();
-	BaseGiftCard b2 = BaseGiftCard();
-	BaseGiftCard b3 = BaseGiftCard();
-	BaseGiftCard b4 = BaseGiftCard();	
+	str.push('c');
+	str.pushInteger(1000);
+	str.push(222);
 
 }
 

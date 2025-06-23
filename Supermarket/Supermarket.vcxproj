@@ -128,6 +128,7 @@
     <ClCompile Include="BaseGiftCard.cpp" />
     <ClCompile Include="Cashier.cpp" />
     <ClCompile Include="Category.cpp" />
+    <ClCompile Include="IntegerFunction.hpp" />
     <ClCompile Include="Manager.cpp" />
     <ClCompile Include="MultipleCategoryGiftCard.cpp" />
     <ClCompile Include="my_string.cpp" />

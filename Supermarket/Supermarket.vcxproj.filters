@@ -84,6 +84,9 @@
     <ClCompile Include="AllProductsGiftCard.cpp">
       <Filter>Source Files\GiftCards</Filter>
     </ClCompile>
+    <ClCompile Include="IntegerFunction.hpp">
+      <Filter>Header Files\Utils</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SupermarketSystem.h">

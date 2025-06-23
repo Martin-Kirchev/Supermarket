@@ -133,3 +133,28 @@ bool operator==(const my_string& lhs, const my_string& rhs) {
 bool operator!=(const my_string& lhs, const my_string& rhs) {
 	return strcmp(lhs.c_str(), rhs.c_str()) != 0;
 }
+
+void my_string::push(const char character) {
+
+	char buffer[2] = { character, '\0' };
+
+	operator+=(buffer);
+	return;
+}
+
+void my_string::pushInteger(size_t number) {
+
+	int digitCount = IntegerFunction::getDigitsCount(number);
+
+	for (size_t i = 0; i < digitCount; i++)
+	{
+		int divider = IntegerFunction::powerOf(10, digitCount - i);
+		char digit = '0' + number / divider;
+
+		push(digit);
+
+		number /= 10;
+	}
+
+	return;
+}
