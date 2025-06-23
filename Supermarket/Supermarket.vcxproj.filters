@@ -38,16 +38,7 @@
     <ClCompile Include="Products\ProductByWeight\ProductByWeight.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Supermarket System\SupermarketSystem.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Utils\Class Helpers\Category\Category.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Utils\Class Helpers\Warning\Warning.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Utils\My Structures\my_string.cpp">
+    <ClCompile Include="Utils\MyStructures\my_string.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Workers\BaseWorker\BaseWorker.cpp">
@@ -91,7 +82,7 @@
     <ClInclude Include="GiftCards\MultipleCategoryGiftCard\MultipleCategoryGiftCard.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Utils\My Structures\my_string.h">
+    <ClInclude Include="Utils\MyStructures\my_string.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Products\ProductByUnit\ProductByUnit.h">
@@ -103,7 +94,7 @@
     <ClInclude Include="GiftCards\SingleCategoryGiftCard\SingleCategoryGiftCard.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Utils\My Structures\my_vector.hpp">
+    <ClInclude Include="Utils\MyStructures\my_vector.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Utils\ClassHelpers\Category\Category.h">

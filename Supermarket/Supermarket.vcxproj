@@ -102,6 +102,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)Utils/ClassHelpers/Category;$(ProjectDir)Utils/ClassHelpers/Other;$(ProjectDir)Utils/ClassHelpers/Warning;$(ProjectDir)Utils/MyStructures;$(ProjectDir)Workers/BaseWorker;$(ProjectDir)Workers/Cashier;$(ProjectDir)Workers/Manager;$(ProjectDir)Products/BaseProduct;$(ProjectDir)Products/ProductByWeight;$(ProjectDir)Products/ProductByUnit;$(ProjectDir)GiftCards/BaseGiftCard;$(ProjectDir)GiftCards/SingleCategoryGiftCard;$(ProjectDir)GiftCards/MultipleCategoryGiftCard;$(ProjectDir)GiftCards/AllProductsGiftCard;$(ProjectDir)SupermarketSystem;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -131,13 +132,10 @@
     <ClCompile Include="Products\BaseProduct\BaseProduct.cpp" />
     <ClCompile Include="Products\ProductByUnit\ProductByUnit.cpp" />
     <ClCompile Include="Products\ProductByWeight\ProductByWeight.cpp" />
-    <ClCompile Include="Supermarket System\SupermarketSystem.cpp" />
     <ClCompile Include="SupermarketSystem\SupermarketSystem.cpp" />
-    <ClCompile Include="Utils\Class Helpers\Category\Category.cpp" />
-    <ClCompile Include="Utils\Class Helpers\Warning\Warning.cpp" />
     <ClCompile Include="Utils\ClassHelpers\Category\Category.cpp" />
     <ClCompile Include="Utils\ClassHelpers\Warning\Warning.cpp" />
-    <ClCompile Include="Utils\My Structures\my_string.cpp" />
+    <ClCompile Include="Utils\MyStructures\my_string.cpp" />
     <ClCompile Include="Workers\BaseWorker\BaseWorker.cpp" />
     <ClCompile Include="Workers\Cashier\Cashier.cpp" />
     <ClCompile Include="Workers\Manager\Manager.cpp" />
@@ -156,8 +154,8 @@
     <ClInclude Include="Utils\ClassHelpers\Other\Random.hpp" />
     <ClInclude Include="Utils\ClassHelpers\Warning\Warning.h" />
     <ClInclude Include="Utils\ClassHelpers\Warning\WarningLevel.hpp" />
-    <ClInclude Include="Utils\My Structures\my_string.h" />
-    <ClInclude Include="Utils\My Structures\my_vector.hpp" />
+    <ClInclude Include="Utils\MyStructures\my_string.h" />
+    <ClInclude Include="Utils\MyStructures\my_vector.hpp" />
     <ClInclude Include="Workers\BaseWorker\BaseWorker.h" />
     <ClInclude Include="Workers\Cashier\Cashier.h" />
     <ClInclude Include="Workers\Manager\Manager.h" />
