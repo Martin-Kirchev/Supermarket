@@ -9,6 +9,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{d2c1c706-3c0d-4cc4-82f5-e225318c886e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -56,25 +59,70 @@
     <ClCompile Include="Workers\Manager\Manager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="SupermarketSystem\SupermarketSystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils\ClassHelpers\Category\Category.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils\ClassHelpers\Warning\Warning.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="GiftCards\AllProductsGiftCard\AllProductsGiftCard.h" />
-    <ClInclude Include="GiftCards\BaseGiftCard\BaseGiftCard.h" />
-    <ClInclude Include="GiftCards\MultipleCategoryGiftCard\MultipleCategoryGiftCard.h" />
-    <ClInclude Include="GiftCards\SingleCategoryGiftCard\SingleCategoryGiftCard.h" />
-    <ClInclude Include="Products\BaseProduct\BaseProduct.h" />
-    <ClInclude Include="Products\ProductByUnit\ProductByUnit.h" />
-    <ClInclude Include="Products\ProductByWeight\ProductByWeight.h" />
-    <ClInclude Include="Supermarket System\SupermarketSystem.h" />
-    <ClInclude Include="Utils\Class Helpers\Category\Category.h" />
-    <ClInclude Include="Utils\Class Helpers\Other\IntegerFunction.hpp" />
-    <ClInclude Include="Utils\Class Helpers\Other\Random.hpp" />
-    <ClInclude Include="Utils\Class Helpers\Warning\Warning.h" />
-    <ClInclude Include="Utils\Class Helpers\Warning\WarningLevel.hpp" />
-    <ClInclude Include="Utils\My Structures\my_string.h" />
-    <ClInclude Include="Utils\My Structures\my_vector.hpp" />
-    <ClInclude Include="Workers\BaseWorker\BaseWorker.h" />
-    <ClInclude Include="Workers\Cashier\Cashier.h" />
-    <ClInclude Include="Workers\Manager\Manager.h" />
+    <ClInclude Include="GiftCards\AllProductsGiftCard\AllProductsGiftCard.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GiftCards\BaseGiftCard\BaseGiftCard.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Products\BaseProduct\BaseProduct.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Workers\BaseWorker\BaseWorker.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Workers\Cashier\Cashier.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Workers\Manager\Manager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GiftCards\MultipleCategoryGiftCard\MultipleCategoryGiftCard.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\My Structures\my_string.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Products\ProductByUnit\ProductByUnit.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Products\ProductByWeight\ProductByWeight.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GiftCards\SingleCategoryGiftCard\SingleCategoryGiftCard.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\My Structures\my_vector.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\ClassHelpers\Category\Category.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\ClassHelpers\Other\IntegerFunction.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\ClassHelpers\Other\Random.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SupermarketSystem\SupermarketSystem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\ClassHelpers\Warning\Warning.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\ClassHelpers\Warning\WarningLevel.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
