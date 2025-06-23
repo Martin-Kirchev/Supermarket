@@ -2,6 +2,7 @@
 #pragma once
 
 #include "my_string.h"
+#include "WorkerRole.hpp"
 
 class BaseWorker {
 
@@ -16,6 +17,8 @@ public:
 
 	size_t getID() const;
 	my_string getPassword() const;
+
+	virtual WorkerRole getRole() const;
 
 private:
 

@@ -8,7 +8,7 @@ class Category {
 public:
 
 	Category() = default;
-	Category(const my_string& name, const my_string& description);
+	Category(const size_t& ID, const my_string& name, const my_string& description);
 	Category(const Category& other) = default;
 	~Category() = default;
 
@@ -16,6 +16,7 @@ public:
 
 private:
 
+	size_t ID;
 	my_string name;
 	my_string description;
 

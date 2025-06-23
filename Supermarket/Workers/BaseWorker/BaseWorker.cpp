@@ -15,3 +15,8 @@ my_string BaseWorker::getPassword() const {
 
 	return password;
 }
+
+WorkerRole BaseWorker::getRole() const {
+
+	return WorkerRole::BASE;
+}

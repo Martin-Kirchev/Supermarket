@@ -17,6 +17,8 @@ public:
 
 	Cashier& operator=(const Cashier& other) = default;
 
+	WorkerRole getRole() const override;
+
 private:
 
 	size_t numberOfTransactions = 0;

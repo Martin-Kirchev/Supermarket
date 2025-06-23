@@ -7,14 +7,8 @@
 int main()
 {
 	
-	//my_string str = "TESTSTR ";
-	//
-	//str.push(Random::randomDigit());
-	//str.push(Random::randomUpper());
-	//str.push(Random::randomDigit());
-	//str.push(Random::randomUpper());
-	//
-	//std::cout << str;
+	SupermarketSystem s = SupermarketSystem();
+	s.registr("manager", "Martin", "Lr", "3333", 69, "password");
 
 }
 

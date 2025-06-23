@@ -139,7 +139,6 @@ void my_string::push(const char character) {
 	char buffer[2] = { character, '\0' };
 
 	operator+=(buffer);
-	return;
 }
 
 void my_string::pushInteger(size_t number) {
@@ -153,6 +152,4 @@ void my_string::pushInteger(size_t number) {
 
 		push(digit);
 	}
-
-	return;
 }

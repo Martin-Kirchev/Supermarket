@@ -1,5 +1,5 @@
 
 #include "Category.h"
 
-Category::Category(const my_string& name, const my_string& description)
-	: name(name), description(description) {}
+Category::Category(const size_t& ID, const my_string& name, const my_string& description)
+	: ID(ID), name(name), description(description) {}

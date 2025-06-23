@@ -134,6 +134,7 @@
     <ClCompile Include="Products\ProductByWeight\ProductByWeight.cpp" />
     <ClCompile Include="SupermarketSystem\SupermarketSystem.cpp" />
     <ClCompile Include="Utils\ClassHelpers\Category\Category.cpp" />
+    <ClCompile Include="Utils\ClassHelpers\Other\CodeGenerator.hpp" />
     <ClCompile Include="Utils\ClassHelpers\Warning\Warning.cpp" />
     <ClCompile Include="Utils\MyStructures\my_string.cpp" />
     <ClCompile Include="Workers\BaseWorker\BaseWorker.cpp" />
@@ -150,8 +151,10 @@
     <ClInclude Include="Products\ProductByWeight\ProductByWeight.h" />
     <ClInclude Include="SupermarketSystem\SupermarketSystem.h" />
     <ClInclude Include="Utils\ClassHelpers\Category\Category.h" />
+    <ClInclude Include="Utils\ClassHelpers\Other\CountManager.hpp" />
     <ClInclude Include="Utils\ClassHelpers\Other\IntegerFunction.hpp" />
     <ClInclude Include="Utils\ClassHelpers\Other\Random.hpp" />
+    <ClInclude Include="Utils\ClassHelpers\Other\WorkerRole.hpp" />
     <ClInclude Include="Utils\ClassHelpers\Warning\Warning.h" />
     <ClInclude Include="Utils\ClassHelpers\Warning\WarningLevel.hpp" />
     <ClInclude Include="Utils\MyStructures\my_string.h" />

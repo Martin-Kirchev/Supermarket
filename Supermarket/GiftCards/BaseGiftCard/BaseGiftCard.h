@@ -8,7 +8,8 @@ class BaseGiftCard {
 
 public:
 
-	BaseGiftCard();
+	BaseGiftCard() = default;
+	BaseGiftCard(const my_string& code);
 	BaseGiftCard(const BaseGiftCard& other) = default;
 	virtual ~BaseGiftCard() = 0;
 

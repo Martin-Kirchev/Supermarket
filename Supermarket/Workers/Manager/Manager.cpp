@@ -1,23 +1,10 @@
 
 #include "Manager.h"
 
-Manager::Manager(const size_t& ID, const my_string& firstName, const my_string& lastName, const my_string& phoneNumber, const size_t& age, const my_string& password)
-	: BaseWorker(ID, firstName, lastName, phoneNumber, age, password) {
+Manager::Manager(const size_t& ID, const my_string& firstName, const my_string& lastName, const my_string& phoneNumber, const size_t& age, const my_string& password, const my_string& specialCode)
+	: BaseWorker(ID, firstName, lastName, phoneNumber, age, password), specialCode(specialCode) {}
 
-	this->specialCode = generateSpecialCode();
-}
+WorkerRole Manager::getRole() const {
 
-my_string Manager::generateSpecialCode() {
-
-	my_string code = "";
-
-	code.push(Random::randomDigit());
-	code.push(Random::randomUpper());
-	code.push(Random::randomUpper());
-	code.push(Random::randomDigit());
-	code.push(Random::randomDigit());
-	code.push(Random::randomDigit());
-	code.push(Random::randomLower());
-
-	return code;
+	return WorkerRole::MANAGER;
 }

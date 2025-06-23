@@ -9,7 +9,7 @@ class BaseProduct {
 public:
 
 	BaseProduct() = default;
-	BaseProduct(const my_string& name, const Category& category, const double& price);
+	BaseProduct(const my_string& name, const size_t& categoryID, const double& price);
 	virtual ~BaseProduct() = 0;
 
 	BaseProduct& operator=(const BaseProduct& other) = default;
@@ -17,7 +17,7 @@ public:
 private:
 
 	my_string name;
-	Category category;
+	size_t categoryID;
 	double price = 0;
 
 };

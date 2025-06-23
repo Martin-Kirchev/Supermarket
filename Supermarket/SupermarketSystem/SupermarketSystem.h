@@ -8,6 +8,8 @@
 #include "SingleCategoryGiftCard.h"
 #include "MultipleCategoryGiftCard.h"
 #include "AllProductsGiftCard.h"
+#include "CountManager.hpp"
+#include "CodeGenerator.hpp"
 
 class SupermarketSystem {
 
@@ -20,9 +22,20 @@ public:
 	SupermarketSystem& operator=(const SupermarketSystem& other) = default;
 
 	void startSystem();
+
 	void login(const size_t& ID, const my_string& password);
-	void registr(const my_string& role, const my_string firstName, const my_string lastName, const my_string phoneNumber, const size_t age, const my_string password);
-	void list_user_data();
+	void logout();
+
+	void registr(const my_string& role, const my_string& firstName, const my_string& lastName, const my_string &phoneNumber, const size_t& age, const my_string& password);
+	//void leave();
+	//
+	//void list_user_data();
+	//void list_workers();
+	//void list_products(const size_t& category_id);
+	//void list_feed();
+	//void list_transactions();
+	//
+	//void sell();
 
 private:
 
@@ -30,7 +43,12 @@ private:
 
 	my_vector<BaseWorker*> employees;
 	my_vector<BaseProduct*> products;
-	my_vector<Category> categories;
+	my_vector<Category*> categories;
 	my_vector<BaseGiftCard*> giftCards;
+
+	void addWorker(BaseWorker* worker);
+	void addProduct(BaseProduct* product);
+	void addCategory(Category* category);
+	void addGiftCard(BaseGiftCard* giftCard);
 
 };
