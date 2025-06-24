@@ -15,6 +15,8 @@ public:
 
 	Warning& operator=(const Warning& other) = default;
 
+	size_t getWarningPoints();
+
 private:
 
 	my_string sender;

@@ -14,6 +14,9 @@ public:
 
 	Category& operator=(const Category& other) = default;
 
+	size_t getID();
+	my_string getName();
+
 private:
 
 	size_t ID;

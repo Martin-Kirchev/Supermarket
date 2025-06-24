@@ -2,7 +2,7 @@
 #pragma once
 #pragma warning(disable: 4996)
 
-#include <ctime>;
+#include <ctime>
 
 #include "Vector.hpp"
 #include "BaseProduct.h"

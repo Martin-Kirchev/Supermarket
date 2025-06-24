@@ -30,7 +30,7 @@ public:
 
 		code.push(Random::randomDigit());
 		code.push(Random::randomUpper());
-		code.pushInteger(CountManager::getGiftCardCounter());
+		code.push(CountManager::getGiftCardCounter());
 		code.push(Random::randomUpper());
 		code.push(Random::randomDigit());
 

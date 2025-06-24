@@ -9,6 +9,31 @@ size_t BaseWorker::getID() const {
 	return ID;
 }
 
+my_string BaseWorker::getFirstName() const
+{
+	return firstName;
+}
+
+my_string BaseWorker::getLastName() const
+{
+	return lastName;
+}
+
+my_string BaseWorker::getPhoneNumber() const
+{
+	return phoneNumber;
+}
+
+size_t BaseWorker::getAge() const
+{
+	return age;
+}
+
+my_string BaseWorker::getPassword() const
+{
+	return password;
+}
+
 bool BaseWorker::checkPassword(const my_string& password) const {
 
 	return this->password == password;

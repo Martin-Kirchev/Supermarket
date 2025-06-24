@@ -1,5 +1,5 @@
 
-#include "my_string.h"
+#include "String.h"
 
 #include <cassert>
 
@@ -65,8 +65,65 @@ int my_string::toNumber() const {
 
 		result = result * 10 + (this->data[i] - '0');
 	}
+}
+
+my_string my_string::toString(size_t num)
+{
+	if (num == 0)
+	{
+		return my_string("0");
+	}
+
+	my_string result;
+	while (num)
+	{
+		result.push((char) (num % 10 + '0'));
+		num /= 10;
+	}
+
+	result.reverse();
+	return result;
+}
+
+my_string my_string::toString(double num)
+{
+	if (num == 0.0)
+	{
+		return my_string("0.00");
+	}
+
+	my_string result;
+	if (num < 0)
+	{
+		result.push('-');
+		num = -num;
+	}
+
+	size_t integerPart = (size_t)num;
+	double fractionalPart = num - (double)integerPart;
+
+	result += my_string::toString(integerPart);
+	result.push('.');
+
+	fractionalPart *= 100;
+	size_t fractionAsInt = (size_t)(fractionalPart + 0.5);
+
+	if (fractionAsInt < 10)
+		result.push('0');
+	result += my_string::toString(fractionAsInt);
 
 	return result;
+}
+
+my_string& my_string::reverse()
+{
+	for (size_t i = 0; i < this->get_length() / 2; i++)
+	{
+		char temp = this->data[i];
+		this->data[i] = this->data[this->get_length() - i - 1];
+		this->data[this->get_length() - i - 1] = temp;
+	}
+	return *this;
 }
 
 const char* my_string::c_str() const {
@@ -168,17 +225,22 @@ void my_string::push(const char character) {
 	operator+=(buffer);
 }
 
-void my_string::pushInteger(size_t number) {
+void my_string::push(const my_string& word) {
 
-	int digitCount = IntegerFunction::getDigitsCount(number);
+	operator+=(word);
+}
 
-	for (size_t i = 1; i <= digitCount; i++)
-	{
-		size_t divider = IntegerFunction::powerOf(10, digitCount - i);
-		char digit = '0' + ((number / divider) % 10);
+void my_string::push(const size_t& number) {
 
-		push(digit);
-	}
+	my_string result = toString(number);
+
+	operator+=(result);
+}
+void my_string::push(const double& number) {
+
+	my_string result = toString(number);
+
+	operator+=(result);
 }
 
 std::istream& getline(std::istream& is, my_string& line, char delimiter)

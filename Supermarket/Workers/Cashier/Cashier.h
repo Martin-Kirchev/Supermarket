@@ -16,6 +16,9 @@ public:
 
 	Cashier& operator=(const Cashier& other) = default;
 
+	size_t getPointsSum();
+	void addWarning(const Warning& warning);
+
 	WorkerType getRole() const override;
 
 private:

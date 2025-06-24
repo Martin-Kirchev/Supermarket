@@ -23,6 +23,11 @@ public:
 	~my_string();
 
 	int toNumber() const;
+	my_string toString(size_t num);
+	my_string toString(double num);
+
+	my_string& reverse();
+
 	const char* c_str() const;
 	size_t get_length() const;
 
@@ -39,11 +44,14 @@ public:
 
 	friend istream& operator>>(istream& in, my_string& str);
 
+	Vector<my_string> split(char delimeter = ' ') const;
+
 	void clear();
 
 	void push(const char character);
-
-	void pushInteger(size_t number);
+	void push(const my_string& word);
+	void push(const size_t& word);
+	void push(const double& word);
 };
 
 my_string operator+(const my_string& lhs, const my_string& rhs);

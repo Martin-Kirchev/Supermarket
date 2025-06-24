@@ -13,7 +13,7 @@ public:
 	static void saveToFile(const Transaction& transaction) {
 
 		my_string transactionID;
-		transactionID.pushInteger(transaction.getID());
+		transactionID.push(transaction.getID());
 
 		Vector<BaseProduct*> products = transaction.getProducts();
 		size_t productsSize = products.getSize();
@@ -21,10 +21,10 @@ public:
 		Vector<size_t> quantities = transaction.getQuantities();
 
 		my_string cashierID;
-		cashierID.pushInteger(transaction.getCashierID());
+		cashierID.push(transaction.getCashierID());
 
 		my_string price;
-		price.pushInteger(IntegerFunction::round(transaction.getCurrentPrice()));
+		price.push(IntegerFunction::round(transaction.getCurrentPrice()));
 
 		std::ofstream file("ResourceFiles/Receipts/receipt_10.txt");
 
@@ -53,7 +53,7 @@ public:
 			file << std::endl;
 		}
 
-		file << "TOTAL: " << price << "BGN" << std::endl;
+		file << "TOTAL: " << price << " BGN" << std::endl;
 
 		file.close();
 	}

@@ -16,7 +16,7 @@ size_t Transaction::getCashierID() const {
 
 void Transaction::calculatePrice() {
 
-	int productsSize = products.getSize();
+	size_t productsSize = products.getSize();
 	bool useGiftCard = (giftCard != nullptr);
 	double tempPrice = 0;
 

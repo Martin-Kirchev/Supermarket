@@ -43,19 +43,19 @@ public:
 	void approve(const size_t& cashierID, const my_string& specialCode);
 	void decline(const size_t& cashierID, const my_string& specialCode);
 	void list_warned_cashiers(const size_t& points);
-	void warn_cashier(const size_t& cashierID, const size_t& points);
+	void warn_cashier(const size_t& cashierID, const Warning& warning);
 	void promote_cashier(const size_t& cashierID, const my_string& specialCode);
 	void fire_cashier(const size_t& cashierID, const my_string& specialCode);
 	void add_category(const my_string& categoryName, const my_string& categoryDescription);
 	void delete_category(const size_t& categoryID);
-	void add_product(const BaseProduct& product);
+	void add_product(const ProductType& productType);
 	void delete_product(const size_t& productID);
 	void load_products(const my_string& filePath);
 	void load_gift_cards(const my_string& filePath);
 
 private:
 
-	BaseWorker * currentWorker = nullptr;
+	BaseWorker * currentWorker = new Manager(10, "Ivan", "Ivanov", "+345", 20, "password", "code");
 
 	Vector<BaseWorker*> employees;
 	Vector<BaseWorker*> pendingEmployees;
@@ -64,8 +64,10 @@ private:
 	Vector<BaseGiftCard*> giftCards;
 
 	BaseWorker* getWorkerByID(const size_t& ID);
+	BaseWorker* getCashierByID(const size_t& ID);
 	BaseProduct* getProductByIndex(const size_t& ID);
-	Category* getCategoryByID(const size_t& ID);
+	Category* getCategoryByID(const size_t& categoryID);
+	Category* getCategoryByName(const my_string& categoryID);
 	BaseGiftCard* getGiftCardByCode(const my_string& ID);
 
 	void addWorker(BaseWorker* worker);

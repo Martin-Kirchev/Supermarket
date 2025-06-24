@@ -15,6 +15,8 @@ public:
 
 	Manager& operator=(const Manager& other) = default;
 
+	bool checkCode(const my_string& specialCode);
+
 	WorkerType getRole() const override;
 
 private:
