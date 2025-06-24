@@ -8,6 +8,7 @@
 #include "SingleCategoryGiftCard.h"
 #include "MultipleCategoryGiftCard.h"
 #include "AllProductsGiftCard.h"
+#include "Transaction.h"
 #include "CountManager.hpp"
 #include "CodeGenerator.hpp"
 
@@ -35,7 +36,7 @@ public:
 	//void list_feed();
 	//void list_transactions();
 	//
-	//void sell();
+	void sell();
 
 private:
 
@@ -45,6 +46,11 @@ private:
 	my_vector<BaseProduct*> products;
 	my_vector<Category*> categories;
 	my_vector<BaseGiftCard*> giftCards;
+
+	BaseWorker* getWorkerByID(const size_t& ID);
+	BaseProduct* getProductByIndex(const size_t& ID);
+	Category* getCategoryByID(const size_t& ID);
+	BaseGiftCard* getGiftCardByCode(const my_string& ID);
 
 	void addWorker(BaseWorker* worker);
 	void addProduct(BaseProduct* product);

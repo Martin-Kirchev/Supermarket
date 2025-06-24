@@ -8,13 +8,17 @@ class ProductByWeight : public BaseProduct {
 public:
 
 	ProductByWeight() = default;
-	ProductByWeight(const my_string& name, const size_t& categoryID, const double& price, const size_t& kilograms);
+	ProductByWeight(const my_string& name, const size_t& categoryID, const double& price, const double& kilograms);
 	~ProductByWeight() override = default;
 
 	ProductByWeight& operator=(const ProductByWeight& other) = default;
 
+	ProductType getType() const override;
+
+	void print() const override;
+
 private:
 
-	size_t kilograms = 0;
+	double kilograms = 0;
 
 };

@@ -2,7 +2,7 @@
 #pragma once
 
 #include "my_string.h"
-#include "WorkerRole.hpp"
+#include "TypeManager.hpp"
 
 class BaseWorker {
 
@@ -11,14 +11,14 @@ public:
 	BaseWorker() = default;
 	BaseWorker(const size_t& ID, const my_string& firstName, const my_string& lastName, const my_string& phoneNumber, const size_t& age, const my_string& password);
 	BaseWorker(const BaseWorker& other) = default;
-	virtual ~BaseWorker() = 0;
+	virtual ~BaseWorker() = default;
 
 	virtual BaseWorker& operator=(const BaseWorker& other) = default;
 
 	size_t getID() const;
 	my_string getPassword() const;
 
-	virtual WorkerRole getRole() const;
+	virtual WorkerType getRole() const = 0;
 
 private:
 

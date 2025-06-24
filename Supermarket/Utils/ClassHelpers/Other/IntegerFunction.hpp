@@ -1,4 +1,6 @@
 
+#pragma once
+
 class IntegerFunction {
 
 public:
@@ -30,5 +32,13 @@ public:
 
 		return poweredNumber;
 	}
+
+	static double round(const double number) {
+
+		double value = (int) (number * 100 + .5);
+
+		return (double) value / 100;
+	}
+	
 
 };

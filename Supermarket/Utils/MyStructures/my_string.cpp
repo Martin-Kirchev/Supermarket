@@ -47,6 +47,28 @@ my_string::~my_string() {
 	free();
 }
 
+int my_string::toNumber() const {
+
+	size_t size = get_length();
+
+	if (size == 0)
+	{
+		return -1;
+	}
+
+	size_t result = 0;
+
+	for (size_t i = 0; i < size; i++)
+	{
+		if (data[i] < '0' || data[i] > '9')
+			return -1;
+
+		result = result * 10 + (this->data[i] - '0');
+	}
+
+	return result;
+}
+
 const char* my_string::c_str() const {
 	return data;
 }
@@ -134,6 +156,11 @@ bool operator!=(const my_string& lhs, const my_string& rhs) {
 	return strcmp(lhs.c_str(), rhs.c_str()) != 0;
 }
 
+void my_string::clear()
+{
+	data[0] = '\0';
+}
+
 void my_string::push(const char character) {
 
 	char buffer[2] = { character, '\0' };
@@ -152,4 +179,25 @@ void my_string::pushInteger(size_t number) {
 
 		push(digit);
 	}
+}
+
+std::istream& getline(std::istream& is, my_string& line, char delimiter)
+{
+	line.clear();
+
+	char ch;
+	while (is.get(ch))
+	{
+		if (ch == delimiter)
+			break;
+
+		line.push(ch);
+	}
+
+	return is;
+}
+
+std::istream& getline(std::istream& is, my_string& line)
+{
+	return getline(is, line, '\n');
 }

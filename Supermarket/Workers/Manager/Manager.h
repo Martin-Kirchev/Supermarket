@@ -15,7 +15,7 @@ public:
 
 	Manager& operator=(const Manager& other) = default;
 
-	WorkerRole getRole() const override;
+	WorkerType getRole() const override;
 
 private:
 

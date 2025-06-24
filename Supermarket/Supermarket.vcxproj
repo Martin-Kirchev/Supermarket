@@ -102,7 +102,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)Utils/ClassHelpers/Category;$(ProjectDir)Utils/ClassHelpers/Other;$(ProjectDir)Utils/ClassHelpers/Warning;$(ProjectDir)Utils/MyStructures;$(ProjectDir)Workers/BaseWorker;$(ProjectDir)Workers/Cashier;$(ProjectDir)Workers/Manager;$(ProjectDir)Products/BaseProduct;$(ProjectDir)Products/ProductByWeight;$(ProjectDir)Products/ProductByUnit;$(ProjectDir)GiftCards/BaseGiftCard;$(ProjectDir)GiftCards/SingleCategoryGiftCard;$(ProjectDir)GiftCards/MultipleCategoryGiftCard;$(ProjectDir)GiftCards/AllProductsGiftCard;$(ProjectDir)SupermarketSystem;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Utils/ClassHelpers/Category;$(ProjectDir)Utils/ClassHelpers/Other;$(ProjectDir)Utils/ClassHelpers/Warning;$(ProjectDir)Utils/MyStructures;$(ProjectDir)Workers/BaseWorker;$(ProjectDir)Workers/Cashier;$(ProjectDir)Workers/Manager;$(ProjectDir)Products/BaseProduct;$(ProjectDir)Products/ProductByWeight;$(ProjectDir)Products/ProductByUnit;$(ProjectDir)GiftCards/BaseGiftCard;$(ProjectDir)GiftCards/SingleCategoryGiftCard;$(ProjectDir)GiftCards/MultipleCategoryGiftCard;$(ProjectDir)GiftCards/AllProductsGiftCard;$(ProjectDir)SupermarketSystem;$(ProjectDir)Transaction;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -133,6 +133,7 @@
     <ClCompile Include="Products\ProductByUnit\ProductByUnit.cpp" />
     <ClCompile Include="Products\ProductByWeight\ProductByWeight.cpp" />
     <ClCompile Include="SupermarketSystem\SupermarketSystem.cpp" />
+    <ClCompile Include="Transaction\Transaction.cpp" />
     <ClCompile Include="Utils\ClassHelpers\Category\Category.cpp" />
     <ClCompile Include="Utils\ClassHelpers\Other\CodeGenerator.hpp" />
     <ClCompile Include="Utils\ClassHelpers\Warning\Warning.cpp" />
@@ -150,11 +151,13 @@
     <ClInclude Include="Products\ProductByUnit\ProductByUnit.h" />
     <ClInclude Include="Products\ProductByWeight\ProductByWeight.h" />
     <ClInclude Include="SupermarketSystem\SupermarketSystem.h" />
+    <ClInclude Include="Transaction\Transaction.h" />
     <ClInclude Include="Utils\ClassHelpers\Category\Category.h" />
     <ClInclude Include="Utils\ClassHelpers\Other\CountManager.hpp" />
     <ClInclude Include="Utils\ClassHelpers\Other\IntegerFunction.hpp" />
     <ClInclude Include="Utils\ClassHelpers\Other\Random.hpp" />
-    <ClInclude Include="Utils\ClassHelpers\Other\WorkerRole.hpp" />
+    <ClInclude Include="Utils\ClassHelpers\Other\ReceiptCreator.hpp" />
+    <ClInclude Include="Utils\ClassHelpers\Other\TypeManager.hpp" />
     <ClInclude Include="Utils\ClassHelpers\Warning\Warning.h" />
     <ClInclude Include="Utils\ClassHelpers\Warning\WarningLevel.hpp" />
     <ClInclude Include="Utils\MyStructures\my_string.h" />

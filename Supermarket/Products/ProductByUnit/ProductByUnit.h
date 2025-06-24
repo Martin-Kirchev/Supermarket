@@ -13,6 +13,10 @@ public:
 
 	ProductByUnit& operator=(const ProductByUnit& other) = default;
 
+	ProductType getType() const override;
+
+	void print() const override;
+
 private:
 
 	size_t quantity = 0;

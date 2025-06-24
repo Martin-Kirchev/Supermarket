@@ -17,7 +17,7 @@ public:
 
 	Cashier& operator=(const Cashier& other) = default;
 
-	WorkerRole getRole() const override;
+	WorkerType getRole() const override;
 
 private:
 

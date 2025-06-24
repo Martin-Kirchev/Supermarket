@@ -62,6 +62,9 @@
     <ClCompile Include="Utils\ClassHelpers\Other\CodeGenerator.hpp">
       <Filter>Header Files</Filter>
     </ClCompile>
+    <ClCompile Include="Transaction\Transaction.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GiftCards\AllProductsGiftCard\AllProductsGiftCard.h">
@@ -118,10 +121,16 @@
     <ClInclude Include="Utils\ClassHelpers\Warning\WarningLevel.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Utils\ClassHelpers\Other\WorkerRole.hpp">
+    <ClInclude Include="Utils\ClassHelpers\Other\TypeManager.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Utils\ClassHelpers\Other\CountManager.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Transaction\Transaction.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\ClassHelpers\Other\ReceiptCreator.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
