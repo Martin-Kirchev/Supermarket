@@ -25,6 +25,10 @@ public:
 
 	void startSystem();
 
+	bool userIsManager();
+
+	bool userIsCashier();
+
 	void login(const size_t& ID, const MyString& password);
 	void logout();
 
@@ -43,7 +47,7 @@ public:
 	void approve(const size_t& cashierID, const MyString& specialCode);
 	void decline(const size_t& cashierID, const MyString& specialCode);
 	void list_warned_cashiers(const size_t& points);
-	void warn_cashier(const size_t& cashierID, const Warning& warning);
+	void warn_cashier(const size_t& cashierID, const size_t& points);
 	void promote_cashier(const size_t& cashierID, const MyString& specialCode);
 	void fire_cashier(const size_t& cashierID, const MyString& specialCode);
 	void add_category(const MyString& categoryName, const MyString& categoryDescription);

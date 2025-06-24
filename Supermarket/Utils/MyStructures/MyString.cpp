@@ -47,6 +47,11 @@ MyString::~MyString() {
 	free();
 }
 
+bool MyString::isEmpty() const {
+
+	return this->get_length() == 0;
+}
+
 int MyString::toNumber() const {
 
 	size_t size = get_length();
@@ -179,6 +184,51 @@ istream& operator>>(istream& in, MyString& str) {
 	strcpy_s(str.data, buffer_length + 1, buffer);
 
 	return in;
+}
+
+MyString MyString::substring(size_t pos, size_t len) const
+{
+	if (pos >= this->get_length() || this->isEmpty())
+	{
+		return MyString();
+	}
+
+	if (pos + len > this->get_length() || len == MyString::npos)
+	{
+		len = this->get_length() - pos;
+	}
+
+	MyString result;
+	for (size_t i = 0; i < len; i++)
+	{
+		result.push(this->data[pos + i]);
+	}
+
+	return result;
+}
+
+Vector<MyString> MyString::split(char delimiter) const
+{
+	Vector<MyString> result;
+	size_t start = 0;
+	for (size_t i = 0; i < this->get_length(); i++)
+	{
+		if (this->data[i] == delimiter ||
+			this->data[i] == '\0')
+		{
+			if (i > start)
+			{
+				result.push_back(this->substring(start, i - start));
+			}
+			start = i + 1;
+		}
+	}
+	if (start < this->get_length())
+	{
+		result.push_back(this->substring(start));
+	}
+
+	return result;
 }
 
 MyString operator+(const MyString& lhs, const MyString& rhs) {

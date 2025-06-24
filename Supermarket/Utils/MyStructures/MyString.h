@@ -18,11 +18,15 @@ class MyString {
 
 public:
 
+	static const size_t npos = -1;
+
 	MyString();
 	MyString(const char* MyString_data);
 	MyString(const MyString& other);
 	MyString& operator=(const MyString& other);
 	~MyString();
+
+	bool isEmpty() const;
 
 	int toNumber() const;
 	MyString toMyString(size_t num);
@@ -46,6 +50,7 @@ public:
 
 	friend istream& operator>>(istream& in, MyString& str);
 
+	MyString substring(size_t pos, size_t len = MyString::npos) const;
 	Vector<MyString> split(char delimeter = ' ') const;
 
 	void clear();
