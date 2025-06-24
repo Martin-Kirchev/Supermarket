@@ -1,40 +1,40 @@
 
-#include "String.h"
+#include "MyString.h"
 
 #include <cassert>
 
-void my_string::free() {
+void MyString::free() {
 	delete[] data;
 }
 
-void my_string::copy_from(const my_string& other) {
+void MyString::copy_from(const MyString& other) {
 	size_t other_data_length = strlen(other.data);
 	data = new char[other_data_length + 1];
 	strcpy_s(data, other_data_length + 1, other.data);
 }
 
-my_string::my_string() {
+MyString::MyString() {
 	data = new char[1];
 	data[0] = '\0';
 }
 
-my_string::my_string(const char* string_data) {
-	if (string_data == nullptr) {
+MyString::MyString(const char* MyString_data) {
+	if (MyString_data == nullptr) {
 		data = new char[1];
 		data[0] = '\0';
 	}
 	else {
-		size_t other_data_length = strlen(string_data);
+		size_t other_data_length = strlen(MyString_data);
 		data = new char[other_data_length + 1];
-		strcpy_s(data, other_data_length + 1, string_data);
+		strcpy_s(data, other_data_length + 1, MyString_data);
 	}
 }
 
-my_string::my_string(const my_string& other) {
+MyString::MyString(const MyString& other) {
 	copy_from(other);
 }
 
-my_string& my_string::operator=(const my_string& other) {
+MyString& MyString::operator=(const MyString& other) {
 	if (this != &other) {
 		free();
 		copy_from(other);
@@ -43,11 +43,11 @@ my_string& my_string::operator=(const my_string& other) {
 	return *this;
 }
 
-my_string::~my_string() {
+MyString::~MyString() {
 	free();
 }
 
-int my_string::toNumber() const {
+int MyString::toNumber() const {
 
 	size_t size = get_length();
 
@@ -67,14 +67,14 @@ int my_string::toNumber() const {
 	}
 }
 
-my_string my_string::toString(size_t num)
+MyString MyString::toMyString(size_t num)
 {
 	if (num == 0)
 	{
-		return my_string("0");
+		return MyString("0");
 	}
 
-	my_string result;
+	MyString result;
 	while (num)
 	{
 		result.push((char) (num % 10 + '0'));
@@ -85,14 +85,14 @@ my_string my_string::toString(size_t num)
 	return result;
 }
 
-my_string my_string::toString(double num)
+MyString MyString::toMyString(double num)
 {
 	if (num == 0.0)
 	{
-		return my_string("0.00");
+		return MyString("0.00");
 	}
 
-	my_string result;
+	MyString result;
 	if (num < 0)
 	{
 		result.push('-');
@@ -102,7 +102,7 @@ my_string my_string::toString(double num)
 	size_t integerPart = (size_t)num;
 	double fractionalPart = num - (double)integerPart;
 
-	result += my_string::toString(integerPart);
+	result += MyString::toMyString(integerPart);
 	result.push('.');
 
 	fractionalPart *= 100;
@@ -110,12 +110,12 @@ my_string my_string::toString(double num)
 
 	if (fractionAsInt < 10)
 		result.push('0');
-	result += my_string::toString(fractionAsInt);
+	result += MyString::toMyString(fractionAsInt);
 
 	return result;
 }
 
-my_string& my_string::reverse()
+MyString& MyString::reverse()
 {
 	for (size_t i = 0; i < this->get_length() / 2; i++)
 	{
@@ -126,28 +126,28 @@ my_string& my_string::reverse()
 	return *this;
 }
 
-const char* my_string::c_str() const {
+const char* MyString::c_str() const {
 	return data;
 }
 
-size_t my_string::get_length() const {
+size_t MyString::get_length() const {
 	return strlen(data);
 }
 
-char& my_string::operator[](size_t index) {
-	// index > size of string
+char& MyString::operator[](size_t index) {
+	// index > size of MyString
 	assert(index < get_length());	// -> if false: stop program
 
 	return data[index];
 }
 
-char my_string::operator[](size_t index) const {
+char MyString::operator[](size_t index) const {
 	assert(index < get_length());
 
 	return data[index];
 }
 
-my_string& my_string::operator+=(const my_string& other) {
+MyString& MyString::operator+=(const MyString& other) {
 	// "Hello" += "Zero"
 	// "HelloZero"
 	
@@ -166,7 +166,7 @@ my_string& my_string::operator+=(const my_string& other) {
 	return *this;
 }
 
-istream& operator>>(istream& in, my_string& str) {
+istream& operator>>(istream& in, MyString& str) {
 	char buffer[1024];
 	in.getline(buffer, 1024);
 
@@ -181,69 +181,69 @@ istream& operator>>(istream& in, my_string& str) {
 	return in;
 }
 
-my_string operator+(const my_string& lhs, const my_string& rhs) {
-	my_string result(lhs);
+MyString operator+(const MyString& lhs, const MyString& rhs) {
+	MyString result(lhs);
 
 	result += rhs;
 	
 	return result;
 }
 
-ostream& operator<<(ostream& out, const my_string& str) {
+ostream& operator<<(ostream& out, const MyString& str) {
 	return out << str.c_str();
 }
 
-bool operator<(const my_string& lhs, const my_string& rhs) {
+bool operator<(const MyString& lhs, const MyString& rhs) {
 	return strcmp(lhs.c_str(), rhs.c_str()) < 0;
 }
 
-bool operator<=(const my_string& lhs, const my_string& rhs) {
+bool operator<=(const MyString& lhs, const MyString& rhs) {
 	return strcmp(lhs.c_str(), rhs.c_str()) <= 0;
 }
-bool operator>=(const my_string& lhs, const my_string& rhs) {
+bool operator>=(const MyString& lhs, const MyString& rhs) {
 	return strcmp(lhs.c_str(), rhs.c_str()) >= 0;
 }
-bool operator>(const my_string& lhs, const my_string& rhs) {
+bool operator>(const MyString& lhs, const MyString& rhs) {
 	return strcmp(lhs.c_str(), rhs.c_str()) > 0;
 }
-bool operator==(const my_string& lhs, const my_string& rhs) {
+bool operator==(const MyString& lhs, const MyString& rhs) {
 	return strcmp(lhs.c_str(), rhs.c_str()) == 0;
 }
-bool operator!=(const my_string& lhs, const my_string& rhs) {
+bool operator!=(const MyString& lhs, const MyString& rhs) {
 	return strcmp(lhs.c_str(), rhs.c_str()) != 0;
 }
 
-void my_string::clear()
+void MyString::clear()
 {
 	data[0] = '\0';
 }
 
-void my_string::push(const char character) {
+void MyString::push(const char character) {
 
 	char buffer[2] = { character, '\0' };
 
 	operator+=(buffer);
 }
 
-void my_string::push(const my_string& word) {
+void MyString::push(const MyString& word) {
 
 	operator+=(word);
 }
 
-void my_string::push(const size_t& number) {
+void MyString::push(const size_t& number) {
 
-	my_string result = toString(number);
-
-	operator+=(result);
-}
-void my_string::push(const double& number) {
-
-	my_string result = toString(number);
+	MyString result = toMyString(number);
 
 	operator+=(result);
 }
+void MyString::push(const double& number) {
 
-std::istream& getline(std::istream& is, my_string& line, char delimiter)
+	MyString result = toMyString(number);
+
+	operator+=(result);
+}
+
+std::istream& getline(std::istream& is, MyString& line, char delimiter)
 {
 	line.clear();
 
@@ -259,7 +259,7 @@ std::istream& getline(std::istream& is, my_string& line, char delimiter)
 	return is;
 }
 
-std::istream& getline(std::istream& is, my_string& line)
+std::istream& getline(std::istream& is, MyString& line)
 {
 	return getline(is, line, '\n');
 }

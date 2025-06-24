@@ -1,10 +1,10 @@
 
 #include "Manager.h"
 
-Manager::Manager(const size_t& ID, const my_string& firstName, const my_string& lastName, const my_string& phoneNumber, const size_t& age, const my_string& password, const my_string& specialCode)
+Manager::Manager(const size_t& ID, const MyString& firstName, const MyString& lastName, const MyString& phoneNumber, const size_t& age, const MyString& password, const MyString& specialCode)
 	: BaseWorker(ID, firstName, lastName, phoneNumber, age, password), specialCode(specialCode) {}
 
-bool Manager::checkCode(const my_string& specialCode) {
+bool Manager::checkCode(const MyString& specialCode) {
 
 	return this->specialCode == specialCode;
 }

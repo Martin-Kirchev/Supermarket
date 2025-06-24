@@ -1,7 +1,7 @@
 
 #include "ProductByWeight.h"
 
-ProductByWeight::ProductByWeight(const my_string& name, const size_t& categoryID, const double& price, const double& kilograms)
+ProductByWeight::ProductByWeight(const MyString& name, const size_t& categoryID, const double& price, const double& kilograms)
 	: BaseProduct(name, categoryID, price), kilograms(kilograms) {}
 
 ProductType ProductByWeight::getType() const {

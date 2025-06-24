@@ -1,7 +1,7 @@
 
 #include "BaseWorker.h"
 
-BaseWorker::BaseWorker(const size_t& ID, const my_string& firstName, const my_string& lastName, const my_string& phoneNumber, const size_t& age, const my_string& password) 
+BaseWorker::BaseWorker(const size_t& ID, const MyString& firstName, const MyString& lastName, const MyString& phoneNumber, const size_t& age, const MyString& password) 
 	: ID(ID), firstName(firstName), lastName(lastName), phoneNumber(phoneNumber), age(age), password(password) {}
 
 size_t BaseWorker::getID() const {
@@ -9,17 +9,17 @@ size_t BaseWorker::getID() const {
 	return ID;
 }
 
-my_string BaseWorker::getFirstName() const
+MyString BaseWorker::getFirstName() const
 {
 	return firstName;
 }
 
-my_string BaseWorker::getLastName() const
+MyString BaseWorker::getLastName() const
 {
 	return lastName;
 }
 
-my_string BaseWorker::getPhoneNumber() const
+MyString BaseWorker::getPhoneNumber() const
 {
 	return phoneNumber;
 }
@@ -29,12 +29,12 @@ size_t BaseWorker::getAge() const
 	return age;
 }
 
-my_string BaseWorker::getPassword() const
+MyString BaseWorker::getPassword() const
 {
 	return password;
 }
 
-bool BaseWorker::checkPassword(const my_string& password) const {
+bool BaseWorker::checkPassword(const MyString& password) const {
 
 	return this->password == password;
 }

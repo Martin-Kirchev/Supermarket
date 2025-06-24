@@ -38,7 +38,7 @@
     <ClCompile Include="Products\ProductByWeight\ProductByWeight.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Utils\MyStructures\String.cpp">
+    <ClCompile Include="Utils\MyStructures\MyString.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Workers\BaseWorker\BaseWorker.cpp">
@@ -91,7 +91,7 @@
     <ClInclude Include="GiftCards\MultipleCategoryGiftCard\MultipleCategoryGiftCard.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Utils\MyStructures\String.h">
+    <ClInclude Include="Utils\MyStructures\MyString.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Products\ProductByUnit\ProductByUnit.h">

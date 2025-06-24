@@ -138,7 +138,7 @@
     <ClCompile Include="Utils\ClassHelpers\Category\Category.cpp" />
     <ClCompile Include="Utils\ClassHelpers\Other\CodeGenerator.hpp" />
     <ClCompile Include="Utils\ClassHelpers\Warning\Warning.cpp" />
-    <ClCompile Include="Utils\MyStructures\String.cpp" />
+    <ClCompile Include="Utils\MyStructures\MyString.cpp" />
     <ClCompile Include="Workers\BaseWorker\BaseWorker.cpp" />
     <ClCompile Include="Workers\Cashier\Cashier.cpp" />
     <ClCompile Include="Workers\Manager\Manager.cpp" />
@@ -161,7 +161,7 @@
     <ClInclude Include="Utils\ClassHelpers\Other\TypeManager.hpp" />
     <ClInclude Include="Utils\ClassHelpers\Warning\Warning.h" />
     <ClInclude Include="Utils\ClassHelpers\Warning\WarningLevel.hpp" />
-    <ClInclude Include="Utils\MyStructures\String.h" />
+    <ClInclude Include="Utils\MyStructures\MyString.h" />
     <ClInclude Include="Utils\MyStructures\Vector.hpp" />
     <ClInclude Include="Workers\BaseWorker\BaseWorker.h" />
     <ClInclude Include="Workers\Cashier\Cashier.h" />

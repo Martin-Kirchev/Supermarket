@@ -18,7 +18,7 @@ public:
     //void approve() {
     //
     //    size_t cashierId;
-    //    my_string specialCode;
+    //    MyString specialCode;
     //
     //    cout << "Enter cashier ID: ";
     //    cin >> cashierId;
@@ -32,7 +32,7 @@ public:
     //void decline() {
     //
     //    size_t cashierId;
-    //    my_string specialCode;
+    //    MyString specialCode;
     //    cout << "Enter cashier ID: ";
     //    cin >> cashierId;
     //    cout << "Enter special code: ";

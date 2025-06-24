@@ -1,7 +1,7 @@
 
 #pragma once
 
-#include "my_string.h"
+#include "MyString.h"
 #include "Random.hpp"
 #include "CountManager.hpp"
 
@@ -9,9 +9,9 @@ class CodeGenerator {
 
 public:
 
-	static my_string generateManagerCode() {
+	static MyString generateManagerCode() {
 
-		my_string code = "";
+		MyString code = "";
 		
 		code.push(Random::randomDigit());
 		code.push(Random::randomUpper());
@@ -24,9 +24,9 @@ public:
 		return code;
 	}
 
-	static my_string generateGiftCardCode() {
+	static MyString generateGiftCardCode() {
 
-		my_string code = "";
+		MyString code = "";
 
 		code.push(Random::randomDigit());
 		code.push(Random::randomUpper());

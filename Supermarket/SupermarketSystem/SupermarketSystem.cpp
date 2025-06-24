@@ -7,14 +7,14 @@ void SupermarketSystem::startSystem() {
 
 	while (loop) {
 
-		my_string inputLine; 
+		MyString inputLine; 
 		getline(std::cin, inputLine);
 
 	}
 
 }
 
-void SupermarketSystem::login(const size_t& ID, const my_string& password) {
+void SupermarketSystem::login(const size_t& ID, const MyString& password) {
 
 	size_t employeesCount = employees.getSize();
 
@@ -38,12 +38,12 @@ void SupermarketSystem::logout() {
 
 }
 
-void SupermarketSystem::registr(const my_string& role, const my_string& firstName, const my_string& lastName, const my_string& phoneNumber, const size_t& age, const my_string& password) {
+void SupermarketSystem::registr(const MyString& role, const MyString& firstName, const MyString& lastName, const MyString& phoneNumber, const size_t& age, const MyString& password) {
 
 	if (role == "manager") {
 
 		size_t ID = CountManager::getWorkerIDCounter();
-		my_string specialCode = CodeGenerator::generateManagerCode();
+		MyString specialCode = CodeGenerator::generateManagerCode();
 
 		addWorker(new Manager(ID, firstName, lastName, phoneNumber, age, password, specialCode));
 
@@ -90,7 +90,7 @@ void SupermarketSystem::sell() {
 
 	Transaction transaction = Transaction(CountManager::getCategoryCounter(), currentWorker->getID());
 
-	my_string command;
+	MyString command;
 
 	while (true) {
 
@@ -140,7 +140,7 @@ void SupermarketSystem::sell() {
 
 	case 'Y':
 
-		my_string giftCardCode;
+		MyString giftCardCode;
 		std::cout << "Enter voucher:" << std::endl;
 		std::cin >> giftCardCode;
 
@@ -165,7 +165,7 @@ void SupermarketSystem::list_pending() {
 	}
 }
 
-void SupermarketSystem::approve(const size_t& cashierID, const my_string& specialCode) {
+void SupermarketSystem::approve(const size_t& cashierID, const MyString& specialCode) {
 
 	Manager* manager = dynamic_cast<Manager*>(currentWorker);
 
@@ -187,7 +187,7 @@ void SupermarketSystem::approve(const size_t& cashierID, const my_string& specia
 
 }
 
-void SupermarketSystem::decline(const size_t& cashierID, const my_string& specialCode) {
+void SupermarketSystem::decline(const size_t& cashierID, const MyString& specialCode) {
 
 	Manager* manager = dynamic_cast<Manager*>(currentWorker);
 
@@ -235,7 +235,7 @@ void SupermarketSystem::warn_cashier(const size_t& cashierID, const Warning& war
 	c->addWarning(warning);
 }
 
-void SupermarketSystem::promote_cashier(const size_t& cashierID, const my_string& specialCode) {
+void SupermarketSystem::promote_cashier(const size_t& cashierID, const MyString& specialCode) {
 
 	Manager* manager = dynamic_cast<Manager*>(currentWorker);
 
@@ -253,7 +253,7 @@ void SupermarketSystem::promote_cashier(const size_t& cashierID, const my_string
 		if (employees[i]->getRole() != WorkerType::CASHIER)
 			break;
 
-		my_string specialCode = CodeGenerator::generateManagerCode();
+		MyString specialCode = CodeGenerator::generateManagerCode();
 		addWorker(new Manager(employees[i]->getID(), employees[i]->getFirstName(), employees[i]->getLastName(), employees[i]->getPhoneNumber(), employees[i]->getAge(), employees[i]->getPassword(), specialCode));
 
 		employees.remove(i);
@@ -261,7 +261,7 @@ void SupermarketSystem::promote_cashier(const size_t& cashierID, const my_string
 	}
 }
 
-void SupermarketSystem::fire_cashier(const size_t& cashierID, const my_string& specialCode) {
+void SupermarketSystem::fire_cashier(const size_t& cashierID, const MyString& specialCode) {
 
 	Manager* manager = dynamic_cast<Manager*>(currentWorker);
 
@@ -283,7 +283,7 @@ void SupermarketSystem::fire_cashier(const size_t& cashierID, const my_string& s
 	}
 }
 
-void SupermarketSystem::add_category(const my_string& categoryName, const my_string& categoryDescription) {
+void SupermarketSystem::add_category(const MyString& categoryName, const MyString& categoryDescription) {
 
 	if (getCategoryByName(categoryName) != nullptr)
 		return;
@@ -307,10 +307,10 @@ void SupermarketSystem::delete_category(const size_t& categoryID) {
 
 void SupermarketSystem::add_product(const ProductType& productType) {
 
-	my_string name;
+	MyString name;
 	cin >> name;
 
-	my_string categoryName;
+	MyString categoryName;
 	cin >> categoryName;
 
 	if (categoryName == nullptr)
@@ -347,11 +347,11 @@ void SupermarketSystem::delete_product(const size_t& productID) {
 	products.remove(productID);
 }
 
-void SupermarketSystem::load_products(const my_string& filePath) {
+void SupermarketSystem::load_products(const MyString& filePath) {
 
 }
 
-void SupermarketSystem::load_gift_cards(const my_string& filePath) {
+void SupermarketSystem::load_gift_cards(const MyString& filePath) {
 
 }
 
@@ -409,7 +409,7 @@ Category* SupermarketSystem::getCategoryByID(const size_t& categoryID) {
 	return nullptr;
 }
 
-Category* SupermarketSystem::getCategoryByName(const my_string& categoryName) {
+Category* SupermarketSystem::getCategoryByName(const MyString& categoryName) {
 
 	size_t categoriesSize = categories.getSize();
 
@@ -423,7 +423,7 @@ Category* SupermarketSystem::getCategoryByName(const my_string& categoryName) {
 	return nullptr;
 }
 
-BaseGiftCard* SupermarketSystem::getGiftCardByCode(const my_string& code) {
+BaseGiftCard* SupermarketSystem::getGiftCardByCode(const MyString& code) {
 
 	size_t giftCardSize = giftCards.getSize();
 

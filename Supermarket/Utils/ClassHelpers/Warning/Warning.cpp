@@ -1,7 +1,7 @@
 
 #include "Warning.h"
 
-Warning::Warning(const my_string& sender, const my_string& description, const WarningLevel& warningLevel)
+Warning::Warning(const MyString& sender, const MyString& description, const WarningLevel& warningLevel)
 	: sender(sender), description(description), warningLevel(warningLevel) {}
 
 size_t Warning::getWarningPoints() {

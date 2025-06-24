@@ -1,7 +1,7 @@
 
 #include "Category.h"
 
-Category::Category(const size_t& ID, const my_string& name, const my_string& description)
+Category::Category(const size_t& ID, const MyString& name, const MyString& description)
 	: ID(ID), name(name), description(description) {}
 
 size_t Category::getID() {
@@ -9,7 +9,7 @@ size_t Category::getID() {
 	return ID;
 }
 
-my_string Category::getName()
+MyString Category::getName()
 {
 	return name;
 }
