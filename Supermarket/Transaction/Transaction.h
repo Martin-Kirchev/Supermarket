@@ -22,6 +22,8 @@ public:
 	void addProduct(BaseProduct* product,const size_t& quantity);
 	void addGiftCard(BaseGiftCard* giftCard);
 
+	my_string timestampToString() const;
+
 private:
 
 	size_t ID;

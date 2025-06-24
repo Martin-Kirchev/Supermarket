@@ -123,7 +123,7 @@ void SupermarketSystem::sell() {
 	transaction.calculatePrice();
 	std::cout << "Total: " << transaction.getCurrentPrice() << std::endl;
 
-	//ReceiptCreator(transaction);
+	ReceiptCreator(transaction);
 
 }
 
@@ -185,4 +185,5 @@ void SupermarketSystem::addGiftCard(BaseGiftCard* giftCard) {
 
 	giftCards.push_back(giftCard);
 }
+
 

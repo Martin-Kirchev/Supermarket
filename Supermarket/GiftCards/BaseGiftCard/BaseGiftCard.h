@@ -19,7 +19,6 @@ public:
 	my_string getCode() const;
 	virtual GiftCardType getType() const = 0;
 	
-
 private:
 
 	my_string code;

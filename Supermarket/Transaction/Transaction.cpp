@@ -17,6 +17,7 @@ size_t Transaction::getCashierID() const {
 void Transaction::calculatePrice() {
 
 	int productsSize = products.size();
+	bool useGiftCard = (giftCard != nullptr);
 	double tempPrice = 0;
 
 	for (size_t i = 0; i < productsSize; i++)
@@ -49,5 +50,18 @@ void Transaction::addProduct(BaseProduct* product, const size_t& quantity) {
 	this->quantities.push_back(quantity);
 }
 
+my_string Transaction::timestampToString() const {
 
+	tm* timeInfo = localtime(&timestamp);
+
+	my_string time = "";
+		//<< (timeInfo->tm_mday < 10 ? "0" : "") << timeInfo->tm_mday << "."
+		//<< (timeInfo->tm_mon + 1 < 10 ? "0" : "") << (timeInfo->tm_mon + 1) << "."
+		//<< (timeInfo->tm_year + 1900)
+		//<< (timeInfo->tm_hour < 10 ? "0" : "") << timeInfo->tm_hour << ":"
+		//<< (timeInfo->tm_min < 10 ? "0" : "") << timeInfo->tm_min << " " 
+		//<< std::endl;
+
+	return time;
+}
 

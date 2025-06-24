@@ -11,6 +11,7 @@
 #include "Transaction.h"
 #include "CountManager.hpp"
 #include "CodeGenerator.hpp"
+#include "ReceiptCreator.hpp"
 
 class SupermarketSystem {
 
