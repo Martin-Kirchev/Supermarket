@@ -13,4 +13,6 @@ public:
 
 	AllProductsGiftCard& operator=(const AllProductsGiftCard& other) = default;
 
+	GiftCardType getType() const override;
+
 };

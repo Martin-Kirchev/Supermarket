@@ -9,7 +9,12 @@ size_t BaseWorker::getID() const {
 	return ID;
 }
 
-my_string BaseWorker::getPassword() const {
+bool BaseWorker::checkPassword(const my_string& password) const {
 
-	return password;
+	return this->password == password;
+}
+
+void BaseWorker::printInfo() const {
+
+	std::cout << ID << " : " << firstName << " : " << lastName << " : " << phoneNumber << " : " << age << std::endl;
 }

@@ -13,4 +13,6 @@ public:
 
 	MultipleCategoryGiftCard& operator=(const MultipleCategoryGiftCard& other) = default;
 
+	GiftCardType getType() const override;
+
 };

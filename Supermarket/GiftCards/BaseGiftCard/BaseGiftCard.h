@@ -16,7 +16,8 @@ public:
 
 	BaseGiftCard& operator=(const BaseGiftCard& other) = default;
 
-	my_string getCode() const;
+	bool checkCode(const my_string& code) const;
+
 	virtual GiftCardType getType() const = 0;
 	
 private:

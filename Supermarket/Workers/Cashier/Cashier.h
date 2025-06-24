@@ -3,8 +3,7 @@
 
 #include "BaseWorker.h"
 #include "Warning.h"
-
-#include "my_vector.hpp"
+#include "Vector.hpp"
 
 class Cashier : public BaseWorker {
 
@@ -22,6 +21,5 @@ public:
 private:
 
 	size_t numberOfTransactions = 0;
-	my_vector<Warning> warnings;
-
+	Vector<Warning> warnings;
 };

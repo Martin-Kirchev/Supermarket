@@ -13,18 +13,18 @@ void SupermarketSystem::startSystem() {
 
 void SupermarketSystem::login(const size_t& ID, const my_string& password) {
 
-	int employeesCount = employees.size();
+	int employeesCount = employees.getSize();
 
-	/*for (int i = 0; i < employeesCount; i++)
+	for (int i = 0; i < employeesCount; i++)
 	{
-		if (employees[i]->getID() == ID && employees[i]->getPassword() == password) {
+		if (employees[i]->getID() == ID && employees[i]->checkPassword(password)) {
 
 			currentWorker = employees[i];
 			std::cout << "Logging in successful!" << std::endl;
 
 			return;
 		}
-	}*/
+	}
 
 	std::cout << "Logging in failed. Employee wasn't found." << std::endl;
 }
@@ -59,6 +59,30 @@ void SupermarketSystem::registr(const my_string& role, const my_string& firstNam
 	std::cout << "Logging in successful!" << std::endl;
 }
 
+void SupermarketSystem::leave()
+{
+}
+
+void SupermarketSystem::list_user_data()
+{
+}
+
+void SupermarketSystem::list_workers()
+{
+}
+
+void SupermarketSystem::list_products(const size_t& categoryID)
+{
+}
+
+void SupermarketSystem::list_feed()
+{
+}
+
+void SupermarketSystem::list_transactions()
+{
+}
+
 void SupermarketSystem::sell() {
 
 	Transaction transaction = Transaction(CountManager::getCategoryCounter(), currentWorker->getID());
@@ -69,7 +93,7 @@ void SupermarketSystem::sell() {
 
 		std::cout << "Products:" << std::endl;
 
-		int productsSize = products.size();
+		int productsSize = products.getSize();
 
 		for (size_t i = 0; i < productsSize; i++)
 		{
@@ -100,6 +124,8 @@ void SupermarketSystem::sell() {
 
 		transaction.addProduct(products[index], quantity);
 
+		//change quantity
+
 		std::cout << "---------" << std::endl;
 	}
 
@@ -123,13 +149,85 @@ void SupermarketSystem::sell() {
 	transaction.calculatePrice();
 	std::cout << "Total: " << transaction.getCurrentPrice() << std::endl;
 
-	ReceiptCreator(transaction);
+	ReceiptCreator::saveToFile(transaction);
+}
 
+void SupermarketSystem::list_pending() {
+
+	int pendingWorkersSize = pendingEmployees.getSize();
+
+	for (size_t i = 0; i < pendingWorkersSize; i++)
+	{
+		pendingEmployees[i]->printInfo();
+	}
+}
+
+void SupermarketSystem::approve(const size_t& cashierID, const my_string& specialCode) {
+
+	//if(currentWorker.)
+
+	int pendingWorkersSize = pendingEmployees.getSize();
+
+	for (size_t i = 0; i < pendingWorkersSize; i++)
+	{
+		if (pendingEmployees[i]->getID() == cashierID) {
+
+			employees.push_back(pendingEmployees[i]);
+			pendingEmployees.remove(i);
+
+			break;
+		}
+	}
+
+}
+
+void SupermarketSystem::decline(const size_t& cashierID, const my_string& specialCode)
+{
+}
+
+void SupermarketSystem::list_warned_cashiers(const size_t& points)
+{
+}
+
+void SupermarketSystem::warn_cashier(const size_t& cashierID, const size_t& points)
+{
+}
+
+void SupermarketSystem::promote_cashier(const size_t& cashierID, const my_string& specialCode)
+{
+}
+
+void SupermarketSystem::fire_cashier(const size_t& cashierID, const my_string& specialCode)
+{
+}
+
+void SupermarketSystem::add_category(const my_string& categoryName, const my_string& categoryDescription)
+{
+}
+
+void SupermarketSystem::delete_category(const size_t& categoryID)
+{
+}
+
+void SupermarketSystem::add_product(const BaseProduct& product)
+{
+}
+
+void SupermarketSystem::delete_product(const size_t& productID)
+{
+}
+
+void SupermarketSystem::load_products(const my_string& filePath)
+{
+}
+
+void SupermarketSystem::load_gift_cards(const my_string& filePath)
+{
 }
 
 BaseWorker* SupermarketSystem::getWorkerByID(const size_t& ID) {
 
-	int workersSize = employees.size();
+	int workersSize = employees.getSize();
 
 	for (size_t i = 0; i < workersSize; i++)
 	{
@@ -153,11 +251,11 @@ BaseProduct* SupermarketSystem::getProductByIndex(const size_t& index) {
 
 BaseGiftCard* SupermarketSystem::getGiftCardByCode(const my_string& code) {
 
-	int giftCardSize = giftCards.size();
+	int giftCardSize = giftCards.getSize();
 
 	for (size_t i = 0; i < giftCardSize; i++)
 	{
-		if (code == giftCards[i]->getCode()) {
+		if (giftCards[i]->checkCode(code)) {
 
 			return giftCards[i];
 		}
@@ -185,5 +283,7 @@ void SupermarketSystem::addGiftCard(BaseGiftCard* giftCard) {
 
 	giftCards.push_back(giftCard);
 }
+
+
 
 

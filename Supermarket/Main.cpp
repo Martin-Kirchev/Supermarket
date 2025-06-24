@@ -10,10 +10,10 @@ int main()
 	SupermarketSystem s = SupermarketSystem();
 	//s.startSystem();
 
-	my_string str = "afas";
-	size_t num = str.toNumber();
+	Transaction tr = Transaction(10, 20);
 
-	std::cout << num;
+	ReceiptCreator::saveToFile(tr);
+
 
 }
 

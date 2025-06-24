@@ -2,7 +2,7 @@
 #include "Transaction.h"
 
 
-Transaction::Transaction(const size_t& ID, const size_t& cashierID) : ID(ID), cashierID(cashierID), price(0), giftCard(nullptr), timestamp(NULL) {}
+Transaction::Transaction(const size_t& ID, const size_t& cashierID) : ID(ID), cashierID(cashierID), price(0), giftCard(nullptr), timestamp(time(NULL)) {}
 
 size_t Transaction::getID() const {
 
@@ -16,7 +16,7 @@ size_t Transaction::getCashierID() const {
 
 void Transaction::calculatePrice() {
 
-	int productsSize = products.size();
+	int productsSize = products.getSize();
 	bool useGiftCard = (giftCard != nullptr);
 	double tempPrice = 0;
 
@@ -50,18 +50,32 @@ void Transaction::addProduct(BaseProduct* product, const size_t& quantity) {
 	this->quantities.push_back(quantity);
 }
 
-my_string Transaction::timestampToString() const {
+void Transaction::addGiftCard(BaseGiftCard* giftCard) {
+
+	this->giftCard = giftCard;
+}
+
+Vector<BaseProduct*> Transaction::getProducts() const {
+
+	return products;
+}
+
+Vector<size_t> Transaction::getQuantities() const {
+
+	return quantities;
+}
+
+std::ostream& Transaction::timestampToStream(std::ostream& os) const {
 
 	tm* timeInfo = localtime(&timestamp);
 
-	my_string time = "";
-		//<< (timeInfo->tm_mday < 10 ? "0" : "") << timeInfo->tm_mday << "."
-		//<< (timeInfo->tm_mon + 1 < 10 ? "0" : "") << (timeInfo->tm_mon + 1) << "."
-		//<< (timeInfo->tm_year + 1900)
-		//<< (timeInfo->tm_hour < 10 ? "0" : "") << timeInfo->tm_hour << ":"
-		//<< (timeInfo->tm_min < 10 ? "0" : "") << timeInfo->tm_min << " " 
-		//<< std::endl;
+	os << (timeInfo->tm_mday < 10 ? "0" : "") << timeInfo->tm_mday << "."
+		<< (timeInfo->tm_mon + 1 < 10 ? "0" : "") << (timeInfo->tm_mon + 1) << "."
+		<< (timeInfo->tm_year + 1900) << " "
+		<< (timeInfo->tm_hour < 10 ? "0" : "") << timeInfo->tm_hour << ":"
+		<< (timeInfo->tm_min < 10 ? "0" : "") << timeInfo->tm_min << " " 
+		<< std::endl;
 
-	return time;
+	return os;
 }
 

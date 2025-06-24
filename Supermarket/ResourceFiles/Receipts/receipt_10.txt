@@ -1,0 +1,11 @@
+RECEIPT
+
+TRANSACTION_ID: 10
+
+CASHIER_ID: 20
+
+24.06.2025 18:43 
+
+------------------------------
+
+TOTAL: BGN

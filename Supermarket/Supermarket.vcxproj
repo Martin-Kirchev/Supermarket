@@ -102,7 +102,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)Utils/ClassHelpers/Category;$(ProjectDir)Utils/ClassHelpers/Other;$(ProjectDir)Utils/ClassHelpers/Warning;$(ProjectDir)Utils/MyStructures;$(ProjectDir)Workers/BaseWorker;$(ProjectDir)Workers/Cashier;$(ProjectDir)Workers/Manager;$(ProjectDir)Products/BaseProduct;$(ProjectDir)Products/ProductByWeight;$(ProjectDir)Products/ProductByUnit;$(ProjectDir)GiftCards/BaseGiftCard;$(ProjectDir)GiftCards/SingleCategoryGiftCard;$(ProjectDir)GiftCards/MultipleCategoryGiftCard;$(ProjectDir)GiftCards/AllProductsGiftCard;$(ProjectDir)SupermarketSystem;$(ProjectDir)Transaction;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)Utils/ClassHelpers/Category;$(ProjectDir)Utils/ClassHelpers/Other;$(ProjectDir)Utils/ClassHelpers/Warning;$(ProjectDir)Utils/MyStructures;$(ProjectDir)Workers/BaseWorker;$(ProjectDir)Workers/Cashier;$(ProjectDir)Workers/Manager;$(ProjectDir)Products/BaseProduct;$(ProjectDir)Products/ProductByWeight;$(ProjectDir)Products/ProductByUnit;$(ProjectDir)GiftCards/BaseGiftCard;$(ProjectDir)GiftCards/SingleCategoryGiftCard;$(ProjectDir)GiftCards/MultipleCategoryGiftCard;$(ProjectDir)GiftCards/AllProductsGiftCard;$(ProjectDir)SupermarketSystem;$(ProjectDir)Transaction;$(ProjectDir)ResourceFiles/Receipts;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -161,7 +161,7 @@
     <ClInclude Include="Utils\ClassHelpers\Warning\Warning.h" />
     <ClInclude Include="Utils\ClassHelpers\Warning\WarningLevel.hpp" />
     <ClInclude Include="Utils\MyStructures\my_string.h" />
-    <ClInclude Include="Utils\MyStructures\my_vector.hpp" />
+    <ClInclude Include="Utils\MyStructures\Vector.hpp" />
     <ClInclude Include="Workers\BaseWorker\BaseWorker.h" />
     <ClInclude Include="Workers\Cashier\Cashier.h" />
     <ClInclude Include="Workers\Manager\Manager.h" />

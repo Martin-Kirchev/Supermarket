@@ -3,7 +3,7 @@
 
 BaseGiftCard::BaseGiftCard(const my_string& code) : code(code) {}
 
-my_string BaseGiftCard::getCode() const {
+bool BaseGiftCard::checkCode(const my_string& code) const {
 
-	return code;
+	return this->code == code;
 }

@@ -100,9 +100,6 @@
     <ClInclude Include="GiftCards\SingleCategoryGiftCard\SingleCategoryGiftCard.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Utils\MyStructures\my_vector.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Utils\ClassHelpers\Category\Category.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -131,6 +128,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Utils\ClassHelpers\Other\ReceiptCreator.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\MyStructures\Vector.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

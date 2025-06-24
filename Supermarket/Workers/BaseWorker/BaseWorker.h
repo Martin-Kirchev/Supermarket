@@ -16,9 +16,11 @@ public:
 	virtual BaseWorker& operator=(const BaseWorker& other) = default;
 
 	size_t getID() const;
-	my_string getPassword() const;
+	bool checkPassword(const my_string& password) const;
 
 	virtual WorkerType getRole() const = 0;
+
+	void printInfo() const;
 
 private:
 

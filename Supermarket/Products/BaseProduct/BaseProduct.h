@@ -12,11 +12,13 @@ public:
 
 	BaseProduct() = default;
 	BaseProduct(const my_string& name, const size_t& categoryID, const double& price);
+	BaseProduct(const BaseProduct& other) = default;
 	virtual ~BaseProduct() = default;
 
 	BaseProduct& operator=(const BaseProduct& other) = default;
 
 	my_string getName() const;
+	size_t getCategoryID() const;
 	double getPrice() const;
 
 	virtual ProductType getType() const = 0;

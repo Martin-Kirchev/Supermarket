@@ -9,6 +9,11 @@ my_string BaseProduct::getName() const {
 	return name;
 }
 
+size_t BaseProduct::getCategoryID() const {
+
+	return categoryID;
+}
+
 double BaseProduct::getPrice() const {
 
 	return price;

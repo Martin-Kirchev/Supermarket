@@ -1,9 +1,10 @@
 
 #pragma once
+#pragma warning(disable: 4996)
 
 #include <ctime>;
 
-#include "my_vector.hpp"
+#include "Vector.hpp"
 #include "BaseProduct.h"
 #include "BaseGiftCard.h"
 
@@ -22,15 +23,17 @@ public:
 	void addProduct(BaseProduct* product,const size_t& quantity);
 	void addGiftCard(BaseGiftCard* giftCard);
 
-	my_string timestampToString() const;
+	Vector<BaseProduct*> getProducts() const;
+	Vector<size_t> getQuantities() const;
+	std::ostream& timestampToStream(std::ostream& os) const;
 
 private:
 
 	size_t ID;
 	size_t cashierID;
 	double price;
-	my_vector<BaseProduct*> products;
-	my_vector<size_t> quantities;
+	Vector<BaseProduct*> products;
+	Vector<size_t> quantities;
 	BaseGiftCard* giftCard;
 	std::time_t timestamp;
 	
