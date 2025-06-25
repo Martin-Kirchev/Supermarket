@@ -300,10 +300,19 @@ std::istream& getline(std::istream& is, MyString& line, char delimiter)
 	char ch;
 	while (is.get(ch))
 	{
+		if (ch == '\r')
+			continue;
+
 		if (ch == delimiter)
 			break;
 
 		line.push(ch);
+	}
+
+	if (is.eof() && !line.isEmpty()) {
+		is.clear();
+
+		return is;
 	}
 
 	return is;

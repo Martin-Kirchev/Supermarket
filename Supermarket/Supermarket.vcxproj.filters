@@ -65,9 +65,6 @@
     <ClCompile Include="Transaction\Transaction.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="UserUI.hpp">
-      <Filter>Header Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GiftCards\AllProductsGiftCard\AllProductsGiftCard.h">
@@ -134,6 +131,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Utils\MyStructures\Vector.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UserUI.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

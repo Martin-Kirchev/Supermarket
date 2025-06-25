@@ -134,7 +134,6 @@
     <ClCompile Include="Products\ProductByWeight\ProductByWeight.cpp" />
     <ClCompile Include="SupermarketSystem\SupermarketSystem.cpp" />
     <ClCompile Include="Transaction\Transaction.cpp" />
-    <ClCompile Include="UserUI.hpp" />
     <ClCompile Include="Utils\ClassHelpers\Category\Category.cpp" />
     <ClCompile Include="Utils\ClassHelpers\Other\CodeGenerator.hpp" />
     <ClCompile Include="Utils\ClassHelpers\Warning\Warning.cpp" />
@@ -153,6 +152,7 @@
     <ClInclude Include="Products\ProductByWeight\ProductByWeight.h" />
     <ClInclude Include="SupermarketSystem\SupermarketSystem.h" />
     <ClInclude Include="Transaction\Transaction.h" />
+    <ClInclude Include="UserUI.hpp" />
     <ClInclude Include="Utils\ClassHelpers\Category\Category.h" />
     <ClInclude Include="Utils\ClassHelpers\Other\CountManager.hpp" />
     <ClInclude Include="Utils\ClassHelpers\Other\IntegerFunction.hpp" />

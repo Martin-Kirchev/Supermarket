@@ -1,23 +1,35 @@
+List of commands:
+
 login <ID> <password>
-logout 
+logout
 register <role> <firstName> <lastName> <phoneNumber> <age> <password>
-leave 
-list_user_data 
-list_workers 
+leave
+list_user_data
+list_workers
 list_products <categoryID>
-list_feed 
-list_transactions 
-sell 
-list_pending 
+list_feed
+list_transactions
+
+
+Cashier only commands:
+
+sell
+
+
+Manager only commands:
+
 approve <cashierID> <specialCode>
 decline <cashierID> <specialCode>
+list_pending
 list_warned_cashiers <points>
 warn_cashier <cashierID> <points>
 promote_cashier <cashierID> <specialCode>
 fire_cashier <cashierID> <specialCode>
 add_category <categoryName> <categoryDescription>
-delete_category <categoryID>
 add_product <productType>
+delete_category <categoryID>
 delete_product <productID>
 load_products <filePath>
 load_gift_cards <filePath>
+
+(Don't type '<' and '>' when calling a command!)

@@ -3,12 +3,12 @@
 
 SupermarketSystem::SupermarketSystem() {
 
-	//loadSupermarketDataToFile();
+	
 }
 
 SupermarketSystem::~SupermarketSystem() {
 
-	//saveSupermarketDataToFile();
+	
 
 }
 
@@ -479,6 +479,14 @@ BaseGiftCard* SupermarketSystem::getGiftCardByCode(const MyString& code) {
 	}
 
 	return nullptr;
+}
+
+void SupermarketSystem::loadSupermarketDataToFile()
+{
+}
+
+void SupermarketSystem::saveSupermarketDataToFile()
+{
 }
 
 void SupermarketSystem::addWorker(BaseWorker* worker) {

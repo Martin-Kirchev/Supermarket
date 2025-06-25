@@ -74,6 +74,9 @@ private:
 	Category* getCategoryByName(const MyString& categoryID);
 	BaseGiftCard* getGiftCardByCode(const MyString& ID);
 
+	void loadSupermarketDataToFile();
+	void saveSupermarketDataToFile();
+
 	void addWorker(BaseWorker* worker);
 	void addProduct(BaseProduct* product);
 	void addCategory(Category* category);

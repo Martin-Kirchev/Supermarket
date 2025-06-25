@@ -250,9 +250,6 @@ public:
 			return;
 		}
 
-		cout << endl;
-		cout << "List of commands: " << endl;
-
 		MyString inputLine;
 		while (getline(file, inputLine)) {
 
