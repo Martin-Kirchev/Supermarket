@@ -22,10 +22,6 @@ public:
 
 	SupermarketSystem& operator=(const SupermarketSystem& other) = default;
 
-	bool userIsManager();
-	bool userIsCashier();
-	bool userIsLoggedIn();
-
 	void login(const size_t& ID, const MyString& password);
 	void logout();
 
@@ -34,7 +30,8 @@ public:
 	
 	void list_user_data();
 	void list_workers();
-	void list_products(const size_t& categoryID);
+	void list_products();
+	void list_products(const MyString& categoryName);
 	void list_feed();
 	void list_transactions();
 	
@@ -54,15 +51,20 @@ public:
 	void load_products(const MyString& filePath);
 	void load_gift_cards(const MyString& filePath);
 
+	bool userIsManager();
+	bool userIsCashier();
+	bool userIsLoggedIn();
+
 private:
 
-	BaseWorker * currentWorker = new Manager(10, "Ivan", "Ivanov", "+345", 20, "password", "code");
+	BaseWorker * currentWorker = nullptr;
 
 	Vector<BaseWorker*> employees;
 	Vector<BaseWorker*> pendingEmployees;
 	Vector<BaseProduct*> products;
 	Vector<Category*> categories;
 	Vector<BaseGiftCard*> giftCards;
+	Vector<Transaction> transactions;
 
 	BaseWorker* getWorkerByID(const size_t& ID);
 	BaseWorker* getCashierByID(const size_t& ID);
@@ -75,8 +77,10 @@ private:
 	void saveSupermarketDataToFile();
 
 	void addWorker(BaseWorker* worker);
+	void addPendingWorker(BaseWorker* pendingWorker);
 	void addProduct(BaseProduct* product);
 	void addCategory(Category* category);
 	void addGiftCard(BaseGiftCard* giftCard);
+	void addTransaction(const Transaction& transaction);
 
 };

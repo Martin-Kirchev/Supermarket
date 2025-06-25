@@ -1,8 +1,9 @@
 
 #include "BaseWorker.h"
 
-BaseWorker::BaseWorker(const size_t& ID, const MyString& firstName, const MyString& lastName, const MyString& phoneNumber, const size_t& age, const MyString& password) 
-	: ID(ID), firstName(firstName), lastName(lastName), phoneNumber(phoneNumber), age(age), password(password) {}
+BaseWorker::BaseWorker(const size_t& ID, const MyString& firstName, const MyString& lastName, const MyString& phoneNumber, const size_t& age, const MyString& password)
+	: ID(ID), firstName(firstName), lastName(lastName), phoneNumber(phoneNumber), age(age), password(password) {
+}
 
 size_t BaseWorker::getID() const {
 
@@ -46,5 +47,11 @@ WorkerType BaseWorker::getRole() const {
 
 void BaseWorker::printInfo() const {
 
-	std::cout << ID << " : " << firstName << " : " << lastName << " : " << phoneNumber << " : " << age << std::endl;
+	cout << "Position: " << toString(getRole()) << endl
+		<< "ID: " << ID << endl
+		<< "First Name: " << firstName << endl
+		<< "Last Name: " << lastName << endl
+		<< "Phone Number: " << phoneNumber << endl
+		<< "Age: " << age << endl
+		<< "Password: " << password << endl;
 }

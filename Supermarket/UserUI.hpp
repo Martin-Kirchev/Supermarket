@@ -8,11 +8,11 @@ using std::cin;
 
 class UserUI {
 
-    SupermarketSystem system;
+	SupermarketSystem system;
 
 public:
 
-    void startSystem() {
+	void startSystem() {
 
 		cout << "Welcome to FMI Supermarket Management System 2024-2025!" << endl;
 		cout << "Please choose an action:" << endl;
@@ -24,6 +24,7 @@ public:
 
 			MyString inputLine;
 			getline(cin, inputLine);
+			SystemFileManager::Feed::add(inputLine);
 
 			Vector<MyString> input = inputLine.split(' ');
 
@@ -40,27 +41,6 @@ public:
 				continue;
 			}
 
-			if (command == "login" && !system.userIsLoggedIn()) {
-
-				size_t ID = input[1].toInteger();
-				MyString password = input[2];
-
-				system.login(ID, password);
-				continue;
-			}
-
-			if (!system.userIsLoggedIn()) {
-			
-				cout << "You need to login first!" << endl;
-				continue;
-			}
-
-			if (command == "logout") {
-
-				system.logout();
-				continue;
-			}
-
 			if (command == "register") {
 
 				MyString role = input[1];
@@ -70,8 +50,34 @@ public:
 				size_t age = input[5].toInteger();
 				MyString password = input[6];
 
-
 				system.registr(role, firstName, lastName, phoneNumber, age, password);
+				continue;
+			}
+
+			if (command == "login") {
+
+				if (system.userIsLoggedIn()) {
+
+					cout << "You are logged in!" << endl;
+					continue;
+				}
+
+				size_t ID = input[1].toInteger();
+				MyString password = input[2];
+
+				system.login(ID, password);
+				continue;
+			}
+
+			if (!system.userIsLoggedIn()) {
+
+				cout << "You need to login first!" << endl;
+				continue;
+			}
+
+			if (command == "logout") {
+
+				system.logout();
 				continue;
 			}
 
@@ -95,9 +101,15 @@ public:
 
 			if (command == "list_products") {
 
-				size_t categoryID = input[1].toInteger();;
+				if (input.getSize() > 1) {
 
-				system.list_products(categoryID);
+					MyString categoryName = input[1];
+					system.list_products(categoryName);
+
+					continue;
+				}
+
+				system.list_products();
 				continue;
 			}
 
@@ -113,17 +125,23 @@ public:
 				continue;
 			}
 
-			if (system.userIsCashier())
-				continue;
+			if (command == "sell") {
 
-			if (command == "sell" && system.userIsCashier()) {
+				if (!system.userIsCashier()) {
+
+					cout << "You are not a cashier!" << endl;
+					continue;
+				}
 
 				system.sell();
 				continue;
 			}
 
-			if (!system.userIsManager())
+			if (!system.userIsManager()) {
+
+				cout << "You are not a manager!" << endl;
 				continue;
+			}
 
 			if (command == "list_pending") {
 
@@ -239,7 +257,9 @@ public:
 			}
 
 		}
-    }
+	}
+
+private:
 
 	void printListOfCommands() {
 
@@ -258,5 +278,5 @@ public:
 
 		file.close();
 	}
-    
+
 };

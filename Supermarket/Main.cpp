@@ -14,7 +14,7 @@ int main()
 	SystemFileManager::Employees::save(emp);*/
 
 	UserUI ui;
-	//ui.startSystem();
+	ui.startSystem();
 
 
 }

@@ -12,7 +12,12 @@ class Transaction {
 
 public:
 
+	Transaction() = default;
 	Transaction(const size_t& ID,const size_t& cashierID);
+	Transaction(const Transaction& other) = default;
+	~Transaction() = default;
+
+	Transaction& operator=(const Transaction& other) = default;
 
 	size_t getID() const;
 	size_t getCashierID() const;
@@ -26,6 +31,8 @@ public:
 	Vector<BaseProduct*> getProducts() const;
 	Vector<size_t> getQuantities() const;
 	std::ostream& timestampToStream(std::ostream& os) const;
+
+	void printInfo();
 
 private:
 

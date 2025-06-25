@@ -41,7 +41,7 @@ void Transaction::calculatePrice() {
 
 double Transaction::getCurrentPrice() const {
 
-	return price;
+	return IntegerFunction::round(price);
 }
 
 void Transaction::addProduct(BaseProduct* product, const size_t& quantity) {
@@ -73,9 +73,36 @@ std::ostream& Transaction::timestampToStream(std::ostream& os) const {
 		<< (timeInfo->tm_mon + 1 < 10 ? "0" : "") << (timeInfo->tm_mon + 1) << "."
 		<< (timeInfo->tm_year + 1900) << " "
 		<< (timeInfo->tm_hour < 10 ? "0" : "") << timeInfo->tm_hour << ":"
-		<< (timeInfo->tm_min < 10 ? "0" : "") << timeInfo->tm_min << " " 
+		<< (timeInfo->tm_min < 10 ? "0" : "") << timeInfo->tm_min << " "
 		<< std::endl;
 
 	return os;
+}
+
+void Transaction::printInfo() {
+
+	cout << "ID: " << ID << endl;
+	cout << "Cashier ID: " << cashierID << endl;
+
+	std::cout << "Products:\n";
+	for (size_t i = 0; i < products.getSize(); i++) {
+
+		cout << i + 1 << ". " << products[i]->getName() << " x" << quantities[i] << endl;
+	}
+
+	std::cout << "Gift Card: ";
+	if (giftCard != nullptr) {
+
+		cout << toString(giftCard->getType()) << endl;
+	}
+	else {
+
+		cout << "None" << endl;
+	}
+
+	cout << "Total Price: " << price << endl;
+
+	std::cout << "Time: ";
+	timestampToStream(cout);
 }
 

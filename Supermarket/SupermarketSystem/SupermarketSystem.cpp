@@ -11,21 +11,6 @@ SupermarketSystem::~SupermarketSystem() {
 	saveSupermarketDataToFile();
 }
 
-bool SupermarketSystem::userIsManager()
-{
-	return currentWorker->getRole() == WorkerType::MANAGER;
-}
-
-bool SupermarketSystem::userIsCashier()
-{
-	return currentWorker->getRole() == WorkerType::CASHIER;
-}
-
-bool SupermarketSystem::userIsLoggedIn()
-{
-	return currentWorker != nullptr;
-}
-
 void SupermarketSystem::login(const size_t& ID, const MyString& password) {
 
 	size_t employeesCount = employees.getSize();
@@ -36,22 +21,23 @@ void SupermarketSystem::login(const size_t& ID, const MyString& password) {
 
 			currentWorker = employees[i];
 
-			std::cout 
-				<< "User " << currentWorker->getFirstName() + " " + currentWorker->getLastName()
-				<< " with ID: " << currentWorker->getID() 
-				<< " has been logged into the system!" 
-				<< std::endl;
+			cout << "User " << currentWorker->getFirstName() + " " + currentWorker->getLastName()
+				<< " with ID:" << currentWorker->getID()
+				<< " was logged into the system."
+				<< endl;
 
 			return;
 		}
 	}
 
-	std::cout << "User wasn't found." << std::endl;
+	cout << "User wasn't found." << endl;
 }
 
 void SupermarketSystem::logout() {
 
 	currentWorker = nullptr;
+
+	cout << "Logged out." << endl;
 }
 
 void SupermarketSystem::registr(const MyString& role, const MyString& firstName, const MyString& lastName, const MyString& phoneNumber, const size_t& age, const MyString& password) {
@@ -62,6 +48,7 @@ void SupermarketSystem::registr(const MyString& role, const MyString& firstName,
 		MyString specialCode = CodeGenerator::generateManagerCode();
 
 		addWorker(new Manager(ID, firstName, lastName, phoneNumber, age, password, specialCode));
+		cout << "Manager was created with file " << currentWorker->getID() << "_special_code.txt." << endl;
 
 		return;
 	}
@@ -70,64 +57,123 @@ void SupermarketSystem::registr(const MyString& role, const MyString& firstName,
 
 		size_t ID = CountManager::getWorkerIDCounter();
 
-		addWorker(new Cashier(ID, firstName, lastName, phoneNumber, age, password));
+		addPendingWorker(new BaseWorker(ID, firstName, lastName, phoneNumber, age, password));
+		cout << "Cashier registration pending approval from a manager." << endl;
 
 		return;
 	}
 
-	std::cout << "Logging in successful!" << std::endl;
+	cout << "Wrong role type." << endl;
 }
 
-void SupermarketSystem::leave()
-{
+void SupermarketSystem::leave() {
+
+	size_t employeesCount = employees.getSize();
+
+	for (size_t i = 0; i < employeesCount; i++)
+	{
+
+		if (currentWorker->getID() == employees[i]->getID()) {
+
+			employees.remove(i);
+			currentWorker == nullptr;
+
+			break;
+		}
+	}
+
+	cout << "Leaving work was successful." << endl;
 }
 
-void SupermarketSystem::list_user_data()
-{
+void SupermarketSystem::list_user_data() {
+
+	cout << "Worker info:" << endl;
+	currentWorker->printInfo();
 }
 
-void SupermarketSystem::list_workers()
-{
+void SupermarketSystem::list_workers() {
+
+	cout << "All workers info:" << endl;
+
+	size_t employeesCount = employees.getSize();
+	for (size_t i = 0; i < employeesCount; i++)
+	{
+		employees[i]->printInfo();
+		cout << endl;
+	}
 }
 
-void SupermarketSystem::list_products(const size_t& categoryID)
-{
+void SupermarketSystem::list_products() {
+
+	cout << "All products info:" << endl;
+
+	size_t productsCount = products.getSize();
+	for (size_t i = 0; i < productsCount; i++)
+	{
+		products[i]->printInfo();
+		cout << endl;
+	}
+
 }
 
-void SupermarketSystem::list_feed()
-{
+void SupermarketSystem::list_products(const MyString& categoryName) {
+
+	cout << "All " << categoryName << "products info :" << endl;
+
+	size_t productsCount = products.getSize();
+	for (size_t i = 0; i < productsCount; i++)
+	{
+		if (products[i]->getCategoryName() == categoryName) {
+
+			products[i]->printInfo();
+			cout << endl;
+		}
+	}
 }
 
-void SupermarketSystem::list_transactions()
-{
+void SupermarketSystem::list_feed() {
+
+	SystemFileManager::Feed::print();
+}
+
+void SupermarketSystem::list_transactions() {
+
+	size_t transactionsCount = transactions.getSize();
+	for (size_t i = 0; i < transactionsCount; i++)
+	{
+		transactions[i].printInfo();
+		cout << endl;
+	}
 }
 
 void SupermarketSystem::sell() {
 
-	Transaction transaction = Transaction(CountManager::getCategoryCounter(), currentWorker->getID());
+	Transaction transaction = Transaction(CountManager::getTransactionsCounter(), currentWorker->getID());
 
 	MyString command;
 
 	while (true) {
 
-		std::cout << "Products:" << std::endl;
+		cout << "Products:" << endl;
 
 		size_t productsSize = products.getSize();
 
 		for (size_t i = 0; i < productsSize; i++)
 		{
-			std::cout << i << ". ";
-			products[i]->print();
+			cout << i + 1 << ". ";
+			products[i]->printInfo();
 		}
 
-		std::cout << "Transaction ID: " << CountManager::getTransactionsCounter() << std::endl;
+		cout << endl;
+		cout << "Transaction ID: " << CountManager::getTransactionsCounter() << endl;
 
 		transaction.calculatePrice();
-		std::cout << "Price: " << transaction.getCurrentPrice() << std::endl;
+		cout << "Price: " << transaction.getCurrentPrice() << endl;
+		cout << endl;
 
 
-		std::cout << "Enter product ID to sell. Enter END to end the transaction:" << std::endl;
-		std::cin >> command;
+		cout << "Enter product ID to sell. Enter END to end the transaction:" << endl;
+		cin >> command;
 
 		int index = command.toInteger();
 
@@ -138,27 +184,28 @@ void SupermarketSystem::sell() {
 			break;
 
 		size_t quantity;
-		std::cout << "Enter quantity:" << std::endl;
-		std::cin >> quantity;
+		cout << "Enter quantity:" << endl;
+		cin >> quantity;
 
 		transaction.addProduct(products[index], quantity);
 
-		//change quantity
 
-		std::cout << "---------" << std::endl;
+		cout << endl;
+		cout << "---------" << endl;
+		cout << endl;
 	}
 
 	char answer;
-	std::cout << "Add voucher : (Y / N) ?" << std::endl;
-	std::cin >> answer;
+	cout << "Add voucher : (Y / N) ?" << endl;
+	cin >> answer;
 
 	switch (answer) {
 
 	case 'Y':
 
 		MyString giftCardCode;
-		std::cout << "Enter voucher:" << std::endl;
-		std::cin >> giftCardCode;
+		cout << "Enter voucher:" << endl;
+		cin >> giftCardCode;
 
 		transaction.addGiftCard(getGiftCardByCode(giftCardCode));
 
@@ -166,7 +213,7 @@ void SupermarketSystem::sell() {
 	}
 
 	transaction.calculatePrice();
-	std::cout << "Total: " << transaction.getCurrentPrice() << std::endl;
+	cout << "Total: " << transaction.getCurrentPrice() << endl;
 
 	ReceiptCreator::saveToFile(transaction);
 }
@@ -248,8 +295,8 @@ void SupermarketSystem::warn_cashier(const size_t& cashierID, const size_t& poin
 		return;
 
 	MyString description;
-	std::cout << "Enter warning description:" << std::endl;
-	std::cin >> description;
+	cout << "Enter warning description:" << endl;
+	cin >> description;
 
 	MyString sender = currentWorker->getFirstName() + " " + currentWorker->getLastName();
 	WarningLevel warningLevel;
@@ -480,6 +527,21 @@ BaseGiftCard* SupermarketSystem::getGiftCardByCode(const MyString& code) {
 	return nullptr;
 }
 
+bool SupermarketSystem::userIsManager()
+{
+	return currentWorker->getRole() == WorkerType::MANAGER;
+}
+
+bool SupermarketSystem::userIsCashier()
+{
+	return currentWorker->getRole() == WorkerType::CASHIER;
+}
+
+bool SupermarketSystem::userIsLoggedIn()
+{
+	return currentWorker != nullptr;
+}
+
 void SupermarketSystem::loadSupermarketDataFromFile() {
 
 	SystemFileManager::Employees::load(employees);
@@ -503,6 +565,11 @@ void SupermarketSystem::addWorker(BaseWorker* worker) {
 	employees.push_back(worker);
 }
 
+void SupermarketSystem::addPendingWorker(BaseWorker* pendingWorker) {
+
+	pendingEmployees.push_back(pendingWorker);
+}
+
 void SupermarketSystem::addProduct(BaseProduct* product) {
 
 	products.push_back(product);
@@ -516,6 +583,11 @@ void SupermarketSystem::addCategory(Category* category) {
 void SupermarketSystem::addGiftCard(BaseGiftCard* giftCard) {
 
 	giftCards.push_back(giftCard);
+}
+
+void SupermarketSystem::addTransaction(const Transaction& transaction) {
+
+	transactions.push_back(transaction);
 }
 
 

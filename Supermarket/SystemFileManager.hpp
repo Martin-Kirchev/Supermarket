@@ -73,6 +73,8 @@ namespace SystemFileManager {
 
 						warnings.push_back(Warning(sender, description, warningLevel));
 					}
+
+					employees.push_back(new Cashier(ID, firstName, lastName, phoneNumber, age, password, numberOfTransactions, warnings));
 				}
 			}
 
@@ -104,6 +106,21 @@ namespace SystemFileManager {
 
 			file.close();
 		}
+
+
+		static void createManagerCodeFile(const size_t& ID, const MyString& code) {
+
+			MyString managerFilePath = MyString("ResourceFiles/SpecialCodes/");
+			managerFilePath.push(ID);
+			managerFilePath.push("_special_code.txt");
+
+			ofstream managerFile(managerFilePath.c_str());
+
+			managerFile << code;
+
+			managerFile.close();
+		}
+
 	}
 
 	namespace PendingEmployees {
@@ -145,7 +162,7 @@ namespace SystemFileManager {
 
 			for (size_t i = 0; i < pendingEmployees.getSize(); i++) {
 
-				file << pendingEmployees[i]->getID() << ':' << pendingEmployees[i]->getFirstName() << ':' << pendingEmployees[i]->getLastName() << ':' 
+				file << pendingEmployees[i]->getID() << ':' << pendingEmployees[i]->getFirstName() << ':' << pendingEmployees[i]->getLastName() << ':'
 					<< pendingEmployees[i]->getPhoneNumber() << ':' << pendingEmployees[i]->getAge() << ':' << pendingEmployees[i]->getPassword() << endl;
 			}
 
@@ -292,7 +309,7 @@ namespace SystemFileManager {
 					giftCards.push_back(new SingleCategoryGiftCard(code, percentage, categoryName));
 
 				}
-				else if(type == "MULTIPLE_CATEGORY") {
+				else if (type == "MULTIPLE_CATEGORY") {
 
 					size_t categoriesSize = input[2].toInteger();
 					Vector<MyString> categories;
@@ -307,7 +324,7 @@ namespace SystemFileManager {
 					giftCards.push_back(new MultipleCategoryGiftCard(code, percentage, categories));
 
 				}
-				else if(type == "ALL_PRODUCTS") {
+				else if (type == "ALL_PRODUCTS") {
 
 					size_t percentage = input[2].toInteger();
 					giftCards.push_back(new AllProductsGiftCard(code, percentage));
@@ -349,5 +366,30 @@ namespace SystemFileManager {
 			file.close();
 		}
 	}
+	namespace Feed {
 
+		static MyString feedPath = "ResourceFiles/Feed/feed.txt";
+
+		static void add(const MyString& input) {
+
+			ofstream file(feedPath.c_str(), ios::app);
+
+			if (!file.is_open())
+				return;
+
+			file << input << endl;
+		}
+
+		 static void print() {
+
+			ifstream file(feedPath.c_str());
+
+			MyString inputLine;
+
+			while (getline(file, inputLine)) {
+
+				cout << inputLine << endl;
+			}
+		}
+	}
 };

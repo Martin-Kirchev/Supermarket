@@ -6,7 +6,7 @@ register <role> <firstName> <lastName> <phoneNumber> <age> <password>
 leave
 list_user_data
 list_workers
-list_products <categoryID>
+list_products <categoryName>
 list_feed
 list_transactions
 

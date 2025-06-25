@@ -11,6 +11,16 @@ std::ostream& operator<<(std::ostream& os, const ProductByWeight& product) {
 	return os;
 }
 
+bool ProductByWeight::isPossibleToBuy(const double& quantity) const
+{
+	return this->kilograms >= quantity;
+}
+
+void ProductByWeight::removeFromQuantity(const double& quantity) {
+
+	this->kilograms -= quantity;
+}
+
 ProductType ProductByWeight::getType() const {
 
 	return ProductType::BY_WEIGHT;
@@ -20,8 +30,8 @@ double ProductByWeight::getKilograms() {
 	return kilograms;
 }
 
-void ProductByWeight::print() const {
+void ProductByWeight::printInfo() const {
 
-	std::cout << getName() << " : " << getPrice() << "/kg : " << kilograms << std::endl;;
+	std::cout << getName() << " : " << getPrice() << "/kg : " << kilograms << std::endl;
 
 }

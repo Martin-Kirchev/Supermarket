@@ -14,10 +14,13 @@ public:
 	ProductByWeight& operator=(const ProductByWeight& other) = default;
 	friend std::ostream& operator<<(std::ostream& os, const ProductByWeight& product);
 
+	bool isPossibleToBuy(const double& quantity) const;
+	void removeFromQuantity(const double& quantity);
+
 	ProductType getType() const override;
 	double getKilograms();
 
-	void print() const override;
+	void printInfo() const override;
 
 private:
 

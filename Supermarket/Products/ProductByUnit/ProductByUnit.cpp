@@ -11,6 +11,16 @@ std::ostream& operator<<(std::ostream& os, const ProductByUnit& product) {
 	return os;
 }
 
+bool ProductByUnit::isPossibleToBuy(const double& quantity) const
+{
+	return this->quantity >= quantity;
+}
+
+void ProductByUnit::removeFromQuantity(const double& quantity) {
+
+	this->quantity -= quantity;
+}
+
 ProductType ProductByUnit::getType() const {
 
 	return ProductType::BY_UNIT;
@@ -21,7 +31,7 @@ size_t ProductByUnit::getQuantity() {
 	return quantity;
 }
 
-void ProductByUnit::print() const {
+void ProductByUnit::printInfo() const {
 
 	std::cout << getName() << " : " << getPrice() << " : " << quantity << std::endl;
 
