@@ -1,6 +1,8 @@
 
 #pragma once
 
+#include <fstream>
+
 #include "Cashier.h"
 #include "Manager.h"
 #include "ProductByUnit.h"
@@ -17,17 +19,15 @@ class SupermarketSystem {
 
 public:
 
-	SupermarketSystem() = default;
+	SupermarketSystem();
 	SupermarketSystem(const SupermarketSystem& other) = default;
-	~SupermarketSystem() = default;
+	~SupermarketSystem();
 
 	SupermarketSystem& operator=(const SupermarketSystem& other) = default;
 
-	void startSystem();
-
 	bool userIsManager();
-
 	bool userIsCashier();
+	bool userIsLoggedIn();
 
 	void login(const size_t& ID, const MyString& password);
 	void logout();

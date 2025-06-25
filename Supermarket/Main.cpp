@@ -1,14 +1,14 @@
 
 
-#include "SupermarketSystem.h"
+#include "UserUI.hpp"
 
 #include <iostream>
 
 int main()
 {
-	
-	SupermarketSystem s = SupermarketSystem();
-	s.startSystem();
+
+	UserUI ui;
+	ui.startSystem();
 
 
 }

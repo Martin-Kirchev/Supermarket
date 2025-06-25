@@ -65,8 +65,8 @@
     <ClCompile Include="Transaction\Transaction.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="UserUI.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="UserUI.hpp">
+      <Filter>Header Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

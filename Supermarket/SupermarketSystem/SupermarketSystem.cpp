@@ -1,215 +1,14 @@
 
 #include "SupermarketSystem.h"
 
-void SupermarketSystem::startSystem() {
+SupermarketSystem::SupermarketSystem() {
 
-	while (true) {
+	//loadSupermarketDataToFile();
+}
 
-		MyString inputLine; 
-		getline(std::cin, inputLine);
+SupermarketSystem::~SupermarketSystem() {
 
-		Vector<MyString> input = inputLine.split(' ');
-
-		MyString command = input[0];
-
-		if (command == "END") {
-
-			break;
-		}
-
-		if (command == "login") {
-
-			size_t ID = input[1].toNumber();
-			MyString password = input[2];
-
-			login(ID, password);
-			continue;
-		}
-
-		if (command == "logout") {
-
-			logout();
-			continue;
-		}
-
-		if (command == "register") {
-
-			MyString role = input[1];
-			MyString firstName = input[2];
-			MyString lastName = input[3];
-			MyString phoneNumber = input[4];
-			size_t age = input[5].toNumber();
-			MyString password = input[6];
-
-
-			registr(role, firstName, lastName, phoneNumber, age, password);
-			continue;
-		}
-
-		if (command == "leave") {
-
-			leave();
-			continue;
-		}
-
-		if (command == "list_user_data") {
-
-			list_user_data();
-			continue;
-		}
-
-		if (command == "list_workers") {
-
-			list_workers();
-			continue;
-		}
-
-		if (command == "list_products") {
-
-			size_t categoryID = input[1].toNumber();;
-
-			list_products(categoryID);
-			continue;
-		}
-
-		if (command == "list_feed") {
-
-			list_feed();
-			continue;
-		}
-
-		if (command == "list_transactions") {
-
-			list_transactions();
-			continue;
-		}
-
-		if (userIsCashier())
-			continue;
-
-		if (command == "sell" && userIsCashier()) {
-
-			sell();
-			continue;
-		}
-
-		if (!userIsManager())
-			continue;
-
-		if (command == "list_pending") {
-
-			list_pending();
-			continue;
-		}
-
-		if (command == "approve") {
-
-			size_t cashierID = input[1].toNumber();;
-			MyString specialCode = input[2];
-
-			approve(cashierID, specialCode);
-			continue;
-		}
-
-		if (command == "decline") {
-
-			size_t cashierID = input[1].toNumber();;
-			MyString specialCode = input[2];
-
-			decline(cashierID, specialCode);
-			continue;
-		}
-
-		if (command == "list_warned_cashiers") {
-
-			size_t points = input[1].toNumber();
-
-			list_warned_cashiers(points);
-			continue;
-		}
-
-		if (command == "warn_cashier") {
-
-			size_t cashierID = input[1].toNumber();
-			size_t points = input[2].toNumber();
-
-			warn_cashier(cashierID, points);
-			continue;
-		}
-
-		if (command == "promote_cashier") {
-			
-			size_t cashierID = input[1].toNumber();;
-			MyString specialCode = input[2];
-
-			promote_cashier(cashierID, specialCode);
-			continue;
-		}
-
-		if (command == "fire_cashier") {
-
-			size_t cashierID = input[1].toNumber();
-			MyString specialCode = input[2];
-
-			fire_cashier(cashierID, specialCode);
-			continue;
-		}
-
-		if (command == "add_category") {
-
-			MyString categoryName = input[1];
-			MyString categoryDescription = input[2];
-
-			add_category(categoryName, categoryDescription);
-			continue;
-		}
-
-		if (command == "delete_category") {
-
-			size_t categoryID = input[1].toNumber();
-
-			delete_category(categoryID);
-			continue;
-		}
-
-		if (command == "add_product") {
-
-			MyString productType = input[1];
-
-			if(productType == "product_by_unit")
-				add_product(ProductType::BY_UNIT);
-
-			if(productType == "product_by_weight")
-				add_product(ProductType::BY_WEIGHT);
-
-			continue;
-		}
-
-		if (command == "delete_product") {
-
-			size_t productID = input[1].toNumber();
-
-			delete_product(productID);
-			continue;
-		}
-
-		if (command == "load_products") {
-
-			MyString filePath = input[1];
-
-			load_products(filePath);
-			continue;
-		}
-
-		if (command == "load_gift_cards") {
-
-			MyString filePath = input[1];
-
-			load_gift_cards(filePath);
-			continue;
-		}
-
-	}
+	//saveSupermarketDataToFile();
 
 }
 
@@ -223,6 +22,11 @@ bool SupermarketSystem::userIsCashier()
 	return currentWorker->getRole() == WorkerType::CASHIER;
 }
 
+bool SupermarketSystem::userIsLoggedIn()
+{
+	return currentWorker != nullptr;
+}
+
 void SupermarketSystem::login(const size_t& ID, const MyString& password) {
 
 	size_t employeesCount = employees.getSize();
@@ -232,13 +36,18 @@ void SupermarketSystem::login(const size_t& ID, const MyString& password) {
 		if (employees[i]->getID() == ID && employees[i]->checkPassword(password)) {
 
 			currentWorker = employees[i];
-			std::cout << "Logging in successful!" << std::endl;
+
+			std::cout 
+				<< "User " << currentWorker->getFirstName() + " " + currentWorker->getLastName()
+				<< " with ID: " << currentWorker->getID() 
+				<< " has been logged into the system!" 
+				<< std::endl;
 
 			return;
 		}
 	}
 
-	std::cout << "Logging in failed. Employee wasn't found." << std::endl;
+	std::cout << "User wasn't found." << std::endl;
 }
 
 void SupermarketSystem::logout() {
@@ -446,22 +255,22 @@ void SupermarketSystem::warn_cashier(const size_t& cashierID, const size_t& poin
 	MyString sender = currentWorker->getFirstName() + " " + currentWorker->getLastName();
 	WarningLevel warningLevel;
 
-		if (points == 100)
-		{
-			warningLevel = WarningLevel::LOW;
-		}
-		else if (points == 200) {
+	if (points == 100)
+	{
+		warningLevel = WarningLevel::LOW;
+	}
+	else if (points == 200) {
 
-			warningLevel = WarningLevel::MEDIUM;
-		}
-		else if (points == 300) {
+		warningLevel = WarningLevel::MEDIUM;
+	}
+	else if (points == 300) {
 
-			warningLevel = WarningLevel::HIGH;
-		}
-		else {
+		warningLevel = WarningLevel::HIGH;
+	}
+	else {
 
-			return;
-		}
+		return;
+	}
 
 	Warning warning = Warning(sender, description, warningLevel);
 

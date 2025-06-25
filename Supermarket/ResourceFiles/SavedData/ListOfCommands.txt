@@ -1,0 +1,23 @@
+login <ID> <password>
+logout 
+register <role> <firstName> <lastName> <phoneNumber> <age> <password>
+leave 
+list_user_data 
+list_workers 
+list_products <categoryID>
+list_feed 
+list_transactions 
+sell 
+list_pending 
+approve <cashierID> <specialCode>
+decline <cashierID> <specialCode>
+list_warned_cashiers <points>
+warn_cashier <cashierID> <points>
+promote_cashier <cashierID> <specialCode>
+fire_cashier <cashierID> <specialCode>
+add_category <categoryName> <categoryDescription>
+delete_category <categoryID>
+add_product <productType>
+delete_product <productID>
+load_products <filePath>
+load_gift_cards <filePath>
