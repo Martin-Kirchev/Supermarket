@@ -124,6 +124,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="SystemFileManager.hpp" />
     <ClCompile Include="GiftCards\AllProductsGiftCard\AllProductsGiftCard.cpp" />
     <ClCompile Include="GiftCards\BaseGiftCard\BaseGiftCard.cpp" />
     <ClCompile Include="GiftCards\MultipleCategoryGiftCard\MultipleCategoryGiftCard.cpp" />

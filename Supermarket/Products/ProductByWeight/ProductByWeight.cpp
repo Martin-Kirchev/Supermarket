@@ -9,6 +9,10 @@ ProductType ProductByWeight::getType() const {
 	return ProductType::BY_WEIGHT;
 }
 
+double ProductByWeight::getKilograms() {
+	return kilograms;
+}
+
 void ProductByWeight::print() const {
 
 	std::cout << getName() << " : " << getPrice() << "/kg : " << kilograms << std::endl;;

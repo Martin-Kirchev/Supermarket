@@ -3,13 +3,12 @@
 
 SupermarketSystem::SupermarketSystem() {
 
-	
+	loadSupermarketDataFromFile();
 }
 
 SupermarketSystem::~SupermarketSystem() {
 
-	
-
+	saveSupermarketDataToFile();
 }
 
 bool SupermarketSystem::userIsManager()
@@ -130,7 +129,7 @@ void SupermarketSystem::sell() {
 		std::cout << "Enter product ID to sell. Enter END to end the transaction:" << std::endl;
 		std::cin >> command;
 
-		int index = command.toNumber();
+		int index = command.toInteger();
 
 		if (index == -1)
 			continue;
@@ -481,12 +480,22 @@ BaseGiftCard* SupermarketSystem::getGiftCardByCode(const MyString& code) {
 	return nullptr;
 }
 
-void SupermarketSystem::loadSupermarketDataToFile()
-{
+void SupermarketSystem::loadSupermarketDataFromFile() {
+
+	SystemFileManager::Employees::load(employees);
+	SystemFileManager::PendingEmployees::load(pendingEmployees);
+	SystemFileManager::Products::load(products);
+	SystemFileManager::Categories::load(categories);
+	SystemFileManager::GiftCards::load(giftCards);
 }
 
-void SupermarketSystem::saveSupermarketDataToFile()
-{
+void SupermarketSystem::saveSupermarketDataToFile() {
+
+	SystemFileManager::Employees::save(employees);
+	SystemFileManager::PendingEmployees::save(pendingEmployees);
+	SystemFileManager::Products::save(products);
+	SystemFileManager::Categories::save(categories);
+	SystemFileManager::GiftCards::save(giftCards);
 }
 
 void SupermarketSystem::addWorker(BaseWorker* worker) {

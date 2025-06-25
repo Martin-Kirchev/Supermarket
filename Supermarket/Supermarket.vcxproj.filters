@@ -65,6 +65,9 @@
     <ClCompile Include="Transaction\Transaction.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="SystemFileManager.hpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GiftCards\AllProductsGiftCard\AllProductsGiftCard.h">

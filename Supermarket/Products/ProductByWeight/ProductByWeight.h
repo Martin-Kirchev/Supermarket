@@ -14,6 +14,7 @@ public:
 	ProductByWeight& operator=(const ProductByWeight& other) = default;
 
 	ProductType getType() const override;
+	double getKilograms();
 
 	void print() const override;
 

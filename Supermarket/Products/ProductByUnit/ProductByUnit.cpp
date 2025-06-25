@@ -9,6 +9,11 @@ ProductType ProductByUnit::getType() const {
 	return ProductType::BY_UNIT;
 }
 
+size_t ProductByUnit::getQuantity() {
+
+	return quantity;
+}
+
 void ProductByUnit::print() const {
 
 	std::cout << getName() << " : " << getPrice() << " : " << quantity << std::endl;

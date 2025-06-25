@@ -42,7 +42,7 @@ public:
 
 			if (command == "login" && !system.userIsLoggedIn()) {
 
-				size_t ID = input[1].toNumber();
+				size_t ID = input[1].toInteger();
 				MyString password = input[2];
 
 				system.login(ID, password);
@@ -67,7 +67,7 @@ public:
 				MyString firstName = input[2];
 				MyString lastName = input[3];
 				MyString phoneNumber = input[4];
-				size_t age = input[5].toNumber();
+				size_t age = input[5].toInteger();
 				MyString password = input[6];
 
 
@@ -95,7 +95,7 @@ public:
 
 			if (command == "list_products") {
 
-				size_t categoryID = input[1].toNumber();;
+				size_t categoryID = input[1].toInteger();;
 
 				system.list_products(categoryID);
 				continue;
@@ -133,7 +133,7 @@ public:
 
 			if (command == "approve") {
 
-				size_t cashierID = input[1].toNumber();;
+				size_t cashierID = input[1].toInteger();;
 				MyString specialCode = input[2];
 
 				system.approve(cashierID, specialCode);
@@ -142,7 +142,7 @@ public:
 
 			if (command == "decline") {
 
-				size_t cashierID = input[1].toNumber();;
+				size_t cashierID = input[1].toInteger();;
 				MyString specialCode = input[2];
 
 				system.decline(cashierID, specialCode);
@@ -151,7 +151,7 @@ public:
 
 			if (command == "list_warned_cashiers") {
 
-				size_t points = input[1].toNumber();
+				size_t points = input[1].toInteger();
 
 				system.list_warned_cashiers(points);
 				continue;
@@ -159,8 +159,8 @@ public:
 
 			if (command == "warn_cashier") {
 
-				size_t cashierID = input[1].toNumber();
-				size_t points = input[2].toNumber();
+				size_t cashierID = input[1].toInteger();
+				size_t points = input[2].toInteger();
 
 				system.warn_cashier(cashierID, points);
 				continue;
@@ -168,7 +168,7 @@ public:
 
 			if (command == "promote_cashier") {
 
-				size_t cashierID = input[1].toNumber();;
+				size_t cashierID = input[1].toInteger();;
 				MyString specialCode = input[2];
 
 				system.promote_cashier(cashierID, specialCode);
@@ -177,7 +177,7 @@ public:
 
 			if (command == "fire_cashier") {
 
-				size_t cashierID = input[1].toNumber();
+				size_t cashierID = input[1].toInteger();
 				MyString specialCode = input[2];
 
 				system.fire_cashier(cashierID, specialCode);
@@ -195,7 +195,7 @@ public:
 
 			if (command == "delete_category") {
 
-				size_t categoryID = input[1].toNumber();
+				size_t categoryID = input[1].toInteger();
 
 				system.delete_category(categoryID);
 				continue;
@@ -216,7 +216,7 @@ public:
 
 			if (command == "delete_product") {
 
-				size_t productID = input[1].toNumber();
+				size_t productID = input[1].toInteger();
 
 				system.delete_product(productID);
 				continue;
@@ -255,6 +255,8 @@ public:
 
 			cout << inputLine << endl;
 		}
+
+		file.close();
 	}
     
 };

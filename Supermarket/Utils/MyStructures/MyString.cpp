@@ -52,7 +52,7 @@ bool MyString::isEmpty() const {
 	return this->get_length() == 0;
 }
 
-int MyString::toNumber() const {
+int MyString::toInteger() const {
 
 	size_t size = get_length();
 
@@ -72,6 +72,38 @@ int MyString::toNumber() const {
 	}
 }
 
+double MyString::toDouble() const {
+
+	size_t size = get_length();
+
+	if (size == 0)
+	{
+		return -1;
+	}
+
+	bool addDecimal = false;
+	size_t decimalCounter = 1;
+	double result = 0;
+
+	for (size_t i = 0; i < size; i++)
+	{
+		if (data[i] == '.') {
+			addDecimal = true;
+			continue;
+		}
+
+		if (data[i] < '0' || data[i] > '9')
+			return -1;
+
+		if (addDecimal) {
+			result = result + ((this->data[i] - '0') / (IntegerFunction::powerOf(10, decimalCounter++) * 1.0));
+			continue;
+		}
+
+		result = result * 10 + (this->data[i] - '0');
+	}
+}
+
 MyString MyString::toMyString(size_t num)
 {
 	if (num == 0)
@@ -82,7 +114,7 @@ MyString MyString::toMyString(size_t num)
 	MyString result;
 	while (num)
 	{
-		result.push((char) (num % 10 + '0'));
+		result.push((char)(num % 10 + '0'));
 		num /= 10;
 	}
 
@@ -155,7 +187,7 @@ char MyString::operator[](size_t index) const {
 MyString& MyString::operator+=(const MyString& other) {
 	// "Hello" += "Zero"
 	// "HelloZero"
-	
+
 	size_t new_length = get_length() + other.get_length() + 1;
 
 	char* new_data = new char[new_length];
@@ -235,7 +267,7 @@ MyString operator+(const MyString& lhs, const MyString& rhs) {
 	MyString result(lhs);
 
 	result += rhs;
-	
+
 	return result;
 }
 

@@ -14,6 +14,7 @@ public:
 	ProductByUnit& operator=(const ProductByUnit& other) = default;
 
 	ProductType getType() const override;
+	size_t getQuantity();
 
 	void print() const override;
 

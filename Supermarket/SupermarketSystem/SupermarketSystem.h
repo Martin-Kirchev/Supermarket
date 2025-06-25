@@ -3,14 +3,11 @@
 
 #include <fstream>
 
-#include "Cashier.h"
-#include "Manager.h"
-#include "ProductByUnit.h"
-#include "ProductByWeight.h"
-#include "SingleCategoryGiftCard.h"
-#include "MultipleCategoryGiftCard.h"
-#include "AllProductsGiftCard.h"
+#include "BaseWorker.h"
+#include "BaseProduct.h"
+#include "BaseGiftCard.h"
 #include "Transaction.h"
+#include "SystemFileManager.hpp"
 #include "CountManager.hpp"
 #include "CodeGenerator.hpp"
 #include "ReceiptCreator.hpp"
@@ -74,7 +71,7 @@ private:
 	Category* getCategoryByName(const MyString& categoryID);
 	BaseGiftCard* getGiftCardByCode(const MyString& ID);
 
-	void loadSupermarketDataToFile();
+	void loadSupermarketDataFromFile();
 	void saveSupermarketDataToFile();
 
 	void addWorker(BaseWorker* worker);
