@@ -1,0 +1,2 @@
+Drink:This is something that can be drinked
+Fruit:This is sometning like a vegitble but not the same

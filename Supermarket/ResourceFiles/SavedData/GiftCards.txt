@@ -1,0 +1,3 @@
+SingleCategory:Dring:10
+MultipleCategory:2:Fruit:Drinke:10
+AllProducts:20

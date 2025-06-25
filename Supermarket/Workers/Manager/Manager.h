@@ -14,6 +14,7 @@ public:
 	~Manager() override = default;
 
 	Manager& operator=(const Manager& other) = default;
+	friend std::ostream& operator<<(std::ostream& os, const Manager& manager);
 
 	bool checkCode(const MyString& specialCode);
 

@@ -11,14 +11,14 @@ class BaseProduct {
 public:
 
 	BaseProduct() = default;
-	BaseProduct(const MyString& name, const size_t& categoryID, const double& price);
+	BaseProduct(const MyString& name, const MyString& categoryName, const double& price);
 	BaseProduct(const BaseProduct& other) = default;
 	virtual ~BaseProduct() = default;
 
 	BaseProduct& operator=(const BaseProduct& other) = default;
 
 	MyString getName() const;
-	size_t getCategoryID() const;
+	MyString getCategoryName() const;
 	double getPrice() const;
 
 	virtual ProductType getType() const = 0;
@@ -28,7 +28,7 @@ public:
 private:
 
 	MyString name;
-	size_t categoryID;
+	MyString categoryName;
 	double price = 0;
 
 };

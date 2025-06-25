@@ -3,5 +3,5 @@
 
 GiftCardType SingleCategoryGiftCard::getType() const {
 
-	return GiftCardType::SINGLE_CATEGOTY;
+	return GiftCardType::SINGLE_CATEGORY;
 }

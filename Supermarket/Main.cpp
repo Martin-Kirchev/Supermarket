@@ -7,18 +7,14 @@
 int main()
 {
 
-	//Vector<BaseProduct*> products;
-	//
-	//products.push_back(new ProductByUnit("Water", 1, 3.50, 100));
-	//products.push_back(new ProductByWeight("Banana", 2, 3.50, 100.11));
-	//
-	//SystemFileManager::Products::save(products);
+	/*Vector<BaseWorker*> emp;
+	emp.push_back(new Manager(1, "Ivan", "KKK", "+3593", 20, "password", "codd2d2de"));
+	emp.push_back(new Cashier(12, "Ivan", "KKK", "+3593", 20, "passw22dord"));
+
+	SystemFileManager::Employees::save(emp);*/
 
 	UserUI ui;
-	ui.startSystem();
-
-	MyString input;
-	getline(std::cin, input);
+	//ui.startSystem();
 
 
 }

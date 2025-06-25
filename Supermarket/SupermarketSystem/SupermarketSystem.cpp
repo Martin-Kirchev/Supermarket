@@ -330,7 +330,7 @@ void SupermarketSystem::add_category(const MyString& categoryName, const MyStrin
 	if (getCategoryByName(categoryName) != nullptr)
 		return;
 
-	addCategory(new Category(CountManager::categoryCounter, categoryName, categoryDescription));
+	addCategory(new Category(categoryName, categoryDescription));
 }
 
 void SupermarketSystem::delete_category(const size_t& categoryID) {
@@ -339,7 +339,7 @@ void SupermarketSystem::delete_category(const size_t& categoryID) {
 
 	for (size_t i = 0; i < categoriesSize; i++) {
 
-		if (categories[i]->getID() == categoryID) {
+		if (i == categoryID) {
 
 			categories.remove(i);
 			break;
@@ -367,7 +367,7 @@ void SupermarketSystem::add_product(const ProductType& productType) {
 		size_t quantity;
 		cin >> quantity;
 
-		addProduct(new ProductByUnit(name, getCategoryByName(categoryName)->getID(), price, quantity));
+		//addProduct(new ProductByUnit(name, );
 		return;
 	}
 
@@ -376,7 +376,7 @@ void SupermarketSystem::add_product(const ProductType& productType) {
 		double kilograms;
 		cin >> kilograms;
 
-		addProduct(new ProductByWeight(name, getCategoryByName(categoryName)->getID(), price, kilograms));
+		//addProduct(new ProductByWeight(name, getCategoryByName(categoryName)->getID(), price, kilograms));
 		return;
 	}
 }
@@ -443,7 +443,7 @@ Category* SupermarketSystem::getCategoryByID(const size_t& categoryID) {
 
 	for (size_t i = 0; i < categoriesSize; i++) {
 
-		if (categories[i]->getID() == categoryID)
+		if (i == categoryID)
 			return categories[i];
 
 	}

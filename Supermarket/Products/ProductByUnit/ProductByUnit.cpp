@@ -1,8 +1,15 @@
 
 #include "ProductByUnit.h"
 
-ProductByUnit::ProductByUnit(const MyString& name, const size_t& categoryID, const double& price, const size_t& quantity)
- : BaseProduct(name, categoryID, price), quantity(quantity) {}
+ProductByUnit::ProductByUnit(const MyString& name, const MyString& categoryName, const double& price, const size_t& quantity)
+ : BaseProduct(name, categoryName, price), quantity(quantity) {}
+
+std::ostream& operator<<(std::ostream& os, const ProductByUnit& product) {
+
+	os << toString(product.getType()) << ':' << product.getName() << ':' << product.getCategoryName() << ':' << product.getPrice() << ':' << product.quantity;
+
+	return os;
+}
 
 ProductType ProductByUnit::getType() const {
 

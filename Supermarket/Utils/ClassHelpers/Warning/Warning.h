@@ -14,6 +14,7 @@ public:
 	~Warning() = default;
 
 	Warning& operator=(const Warning& other) = default;
+	friend std::ostream& operator<<(std::ostream& os, const Warning& warning);
 
 	size_t getWarningPoints();
 

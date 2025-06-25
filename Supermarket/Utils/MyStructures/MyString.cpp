@@ -52,7 +52,7 @@ bool MyString::isEmpty() const {
 	return this->get_length() == 0;
 }
 
-int MyString::toInteger() const {
+size_t MyString::toInteger() const {
 
 	size_t size = get_length();
 
@@ -70,6 +70,8 @@ int MyString::toInteger() const {
 
 		result = result * 10 + (this->data[i] - '0');
 	}
+
+	return result;
 }
 
 double MyString::toDouble() const {

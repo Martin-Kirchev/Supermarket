@@ -28,7 +28,7 @@ public:
 
 	bool isEmpty() const;
 
-	int toInteger() const;
+	size_t toInteger() const;
 	double toDouble() const;
 	MyString toMyString(size_t num);
 	MyString toMyString(double num);

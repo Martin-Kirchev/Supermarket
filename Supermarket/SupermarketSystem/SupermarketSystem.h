@@ -68,7 +68,7 @@ private:
 	BaseWorker* getCashierByID(const size_t& ID);
 	BaseProduct* getProductByIndex(const size_t& ID);
 	Category* getCategoryByID(const size_t& categoryID);
-	Category* getCategoryByName(const MyString& categoryID);
+	Category* getCategoryByName(const MyString& categoryName);
 	BaseGiftCard* getGiftCardByCode(const MyString& ID);
 
 	void loadSupermarketDataFromFile();
