@@ -39,6 +39,11 @@ bool BaseWorker::checkPassword(const MyString& password) const {
 	return this->password == password;
 }
 
+WorkerType BaseWorker::getRole() const {
+
+	return WorkerType::BASE;
+}
+
 void BaseWorker::printInfo() const {
 
 	std::cout << ID << " : " << firstName << " : " << lastName << " : " << phoneNumber << " : " << age << std::endl;

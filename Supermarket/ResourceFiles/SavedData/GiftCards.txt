@@ -1,3 +1,3 @@
-SingleCategory:Dring:10
-MultipleCategory:2:Fruit:Drinke:10
-AllProducts:20
+SINGLE_CATEGORY:code1:Drink:10
+MULTIPLE_CATEGORY:code2:2:Fruit:Drink:10
+ALL_PRODUCTS:code3:20

@@ -23,7 +23,7 @@ public:
 	MyString getPassword() const;
 	bool checkPassword(const MyString& password) const;
 
-	virtual WorkerType getRole() const = 0;
+	virtual WorkerType getRole() const;
 
 	void printInfo() const;
 

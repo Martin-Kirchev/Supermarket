@@ -42,7 +42,7 @@ namespace SystemFileManager {
 				MyString phoneNumber = input[4];
 				size_t age = input[5].toInteger();
 				MyString password = input[6];
-				
+
 				if (role == "MANAGER") {
 
 					MyString managerFilePath = MyString("ResourceFiles/SpecialCodes/");
@@ -112,10 +112,44 @@ namespace SystemFileManager {
 
 		static void load(Vector<BaseWorker*>& pendingEmployees) {
 
+			ifstream file(pendingEmployeesPath.c_str());
+
+			if (!file.is_open())
+				return;
+
+			MyString inputLine;
+
+			while (getline(file, inputLine)) {
+
+				Vector<MyString> input = inputLine.split(':');
+
+				size_t ID = input[0].toInteger();
+				MyString firstName = input[1];
+				MyString lastName = input[2];
+				MyString phoneNumber = input[3];
+				size_t age = input[4].toInteger();
+				MyString password = input[5];
+
+				pendingEmployees.push_back(new BaseWorker(ID, firstName, lastName, phoneNumber, age, password));
+			}
+
+			file.close();
 		}
 
 		static void save(Vector<BaseWorker*>& pendingEmployees) {
 
+			ofstream file(pendingEmployeesPath.c_str());
+
+			if (!file.is_open())
+				return;
+
+			for (size_t i = 0; i < pendingEmployees.getSize(); i++) {
+
+				file << pendingEmployees[i]->getID() << ':' << pendingEmployees[i]->getFirstName() << ':' << pendingEmployees[i]->getLastName() << ':' 
+					<< pendingEmployees[i]->getPhoneNumber() << ':' << pendingEmployees[i]->getAge() << ':' << pendingEmployees[i]->getPassword() << endl;
+			}
+
+			file.close();
 		}
 	}
 
@@ -169,8 +203,6 @@ namespace SystemFileManager {
 
 			for (size_t i = 0; i < products.getSize(); i++)
 			{
-				MyString type = toString(products[i]->getType());
-
 				if (products[i]->getType() == ProductType::BY_WEIGHT) {
 
 					ProductByWeight* p = dynamic_cast<ProductByWeight*>(products[i]);
@@ -204,6 +236,7 @@ namespace SystemFileManager {
 			while (getline(file, inputLine)) {
 
 				Vector<MyString> input = inputLine.split(':');
+
 				MyString name = input[0];
 				MyString description = input[1];
 
@@ -238,10 +271,82 @@ namespace SystemFileManager {
 
 		static void load(Vector<BaseGiftCard*>& giftCards) {
 
+			ifstream file(giftCardsPath.c_str());
+
+			if (!file.is_open())
+				return;
+
+			MyString inputLine;
+
+			while (getline(file, inputLine)) {
+
+				Vector<MyString> input = inputLine.split(':');
+
+				MyString type = input[0];
+				MyString code = input[1];
+
+				if (type == "SINGLE_CATEGORY") {
+
+					MyString categoryName = input[2];
+					size_t percentage = input[3].toInteger();
+					giftCards.push_back(new SingleCategoryGiftCard(code, percentage, categoryName));
+
+				}
+				else if(type == "MULTIPLE_CATEGORY") {
+
+					size_t categoriesSize = input[2].toInteger();
+					Vector<MyString> categories;
+
+					for (size_t i = 1; i <= categoriesSize; i++)
+					{
+						categories.push_back(input[2 + i]);
+					}
+
+					size_t percentage = input[3 + categoriesSize].toInteger();
+
+					giftCards.push_back(new MultipleCategoryGiftCard(code, percentage, categories));
+
+				}
+				else if(type == "ALL_PRODUCTS") {
+
+					size_t percentage = input[2].toInteger();
+					giftCards.push_back(new AllProductsGiftCard(code, percentage));
+				}
+			}
+
+			file.close();
 		}
 
 		static void save(Vector<BaseGiftCard*>& giftCards) {
 
+			ofstream file(giftCardsPath.c_str());
+
+			if (!file.is_open())
+				return;
+
+			MyString inputLine;
+
+			for (size_t i = 0; i < giftCards.getSize(); i++) {
+
+				if (giftCards[i]->getType() == GiftCardType::SINGLE_CATEGORY) {
+
+					SingleCategoryGiftCard* g = dynamic_cast<SingleCategoryGiftCard*>(giftCards[i]);
+					file << *g << endl;
+
+				}
+				else if (giftCards[i]->getType() == GiftCardType::MULTIPLE_CATEGORY) {
+
+					MultipleCategoryGiftCard* g = dynamic_cast<MultipleCategoryGiftCard*>(giftCards[i]);
+					file << *g << endl;
+				}
+				else if (giftCards[i]->getType() == GiftCardType::ALL_PRODUCTS) {
+
+					AllProductsGiftCard* g = dynamic_cast<AllProductsGiftCard*>(giftCards[i]);
+					file << *g << endl;
+				}
+			}
+
+			file.close();
 		}
 	}
 

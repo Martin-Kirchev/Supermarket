@@ -3,6 +3,7 @@
 
 enum class WorkerType {
 
+	BASE,
 	CASHIER,
 	MANAGER
 
@@ -12,6 +13,7 @@ inline const char* toString(WorkerType type) {
 
 	switch (type) {
 
+	case WorkerType::BASE: return "BASE";
 	case WorkerType::CASHIER: return "CASHIER";
 	case WorkerType::MANAGER: return "MANAGER";
 
@@ -20,6 +22,7 @@ inline const char* toString(WorkerType type) {
 
 inline WorkerType workerTypeFromString(const MyString& level) {
 
+	if (level == "BASE") return WorkerType::BASE;
 	if (level == "CASHIER") return WorkerType::CASHIER;
 	if (level == "MANAGER") return WorkerType::MANAGER;
 
