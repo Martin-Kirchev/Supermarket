@@ -1,1 +1,2 @@
-BY_UNIT:Water:Drink:1.50:20
+BY_UNIT:Water:Drink:1.5:1020
+BY_WEIGHT:Banana:Fruit:3.5:100

@@ -146,6 +146,9 @@ void SupermarketSystem::sell() {
 
 	Transaction transaction = Transaction(CountManager::getTransactionsCounter(), currentWorker->getID());
 
+	Cashier* cashier = dynamic_cast<Cashier*>(currentWorker);
+	cashier->addTransaction();
+
 	while (true) {
 
 		MyString command;
@@ -260,7 +263,7 @@ void SupermarketSystem::approve(const size_t& cashierID, const MyString& special
 			pendingEmployees.remove(i);
 
 			cout << "Cashier was approved." << endl;
-			break;
+			return;
 		}
 	}
 
@@ -283,7 +286,7 @@ void SupermarketSystem::decline(const size_t& cashierID, const MyString& special
 			pendingEmployees.remove(i);
 
 			cout << "Cashier was declined." << endl;
-			break;
+			return;
 		}
 	}
 

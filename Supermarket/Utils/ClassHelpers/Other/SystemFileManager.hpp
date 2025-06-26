@@ -227,17 +227,23 @@ namespace SystemFileManager {
 
 					MyString name = input[1];
 					double quantity = input[2].toDouble();
+					bool wasFound = false;
+
+					BaseProduct* product = nullptr;
 
 					for (size_t i = 0; i < products.getSize(); i++)
 					{
 						if (products[i]->getName() == name) {
 
-							products[i]->addQuantity(quantity);
-							continue;
+							product = products[i];
+							break;
 						}
 					}
 
-					cout << "Product was not found." << endl;
+					if (product == nullptr)
+						continue;
+
+					product->addQuantity(quantity);
 					continue;
 
 				}
@@ -253,11 +259,14 @@ namespace SystemFileManager {
 						double kilograms = input[5].toDouble();
 						products.push_back(new ProductByWeight(name, categoryName, price, kilograms));
 
+						continue;
 					}
 					else if (type == "BY_UNIT") {
 
 						size_t quantity = input[5].toInteger();
 						products.push_back(new ProductByUnit(name, categoryName, price, quantity));
+
+						continue;
 					}
 				}
 			}

@@ -39,6 +39,11 @@ void Cashier::addWarning(const Warning& warning) {
 	warnings.push_back(warning);
 }
 
+void Cashier::addTransaction() {
+
+	numberOfTransactions++;
+}
+
 WorkerType Cashier::getRole() const {
 
 	return WorkerType::CASHIER;

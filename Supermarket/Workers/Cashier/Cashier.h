@@ -20,6 +20,7 @@ public:
 
 	size_t getPointsSum();
 	void addWarning(const Warning& warning);
+	void addTransaction();
 
 	WorkerType getRole() const override;
 

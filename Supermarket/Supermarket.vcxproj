@@ -124,7 +124,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="SystemFileManager.hpp" />
     <ClCompile Include="GiftCards\AllProductsGiftCard\AllProductsGiftCard.cpp" />
     <ClCompile Include="GiftCards\BaseGiftCard\BaseGiftCard.cpp" />
     <ClCompile Include="GiftCards\MultipleCategoryGiftCard\MultipleCategoryGiftCard.cpp" />
@@ -159,6 +158,7 @@
     <ClInclude Include="Utils\ClassHelpers\Other\IntegerFunction.hpp" />
     <ClInclude Include="Utils\ClassHelpers\Other\Random.hpp" />
     <ClInclude Include="Utils\ClassHelpers\Other\ReceiptCreator.hpp" />
+    <ClInclude Include="Utils\ClassHelpers\Other\SystemFileManager.hpp" />
     <ClInclude Include="Utils\ClassHelpers\Other\TypeManager.hpp" />
     <ClInclude Include="Utils\ClassHelpers\Warning\Warning.h" />
     <ClInclude Include="Utils\ClassHelpers\Warning\WarningLevel.hpp" />

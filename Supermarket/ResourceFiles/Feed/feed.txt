@@ -1,7 +1,0 @@
-login 100 password
-/help
-load_products ResourceFiles/BonusData/Products.txt
-login 100 password
-list_products ResourceFiles/BonusData/Products.txt
-login 100 password
-load_products ResourceFiles/BonusData/Products.txt
