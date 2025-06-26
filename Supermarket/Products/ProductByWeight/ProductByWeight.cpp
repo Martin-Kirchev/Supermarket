@@ -21,6 +21,11 @@ void ProductByWeight::removeFromQuantity(const double& quantity) {
 	this->kilograms -= quantity;
 }
 
+void ProductByWeight::addQuantity(const double& quantity) {
+
+	this->kilograms += quantity;
+}
+
 ProductType ProductByWeight::getType() const {
 
 	return ProductType::BY_WEIGHT;

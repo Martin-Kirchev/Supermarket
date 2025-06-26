@@ -14,8 +14,9 @@ public:
 	ProductByWeight& operator=(const ProductByWeight& other) = default;
 	friend std::ostream& operator<<(std::ostream& os, const ProductByWeight& product);
 
-	bool isPossibleToBuy(const double& quantity) const;
-	void removeFromQuantity(const double& quantity);
+	bool isPossibleToBuy(const double& quantity) const override;
+	void removeFromQuantity(const double& quantity) override;
+	void addQuantity(const double& quantity) override;
 
 	ProductType getType() const override;
 	double getKilograms();

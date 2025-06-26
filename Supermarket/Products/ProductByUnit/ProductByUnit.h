@@ -16,6 +16,7 @@ public:
 
 	bool isPossibleToBuy(const double& quantity) const override;
 	void removeFromQuantity(const double& quantity) override;
+	void addQuantity(const double& quantity) override;
 
 	ProductType getType() const override;
 	size_t getQuantity();

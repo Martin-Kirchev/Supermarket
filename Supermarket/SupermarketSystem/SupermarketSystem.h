@@ -74,6 +74,8 @@ private:
 	void loadSupermarketDataFromFile();
 	void saveSupermarketDataToFile();
 
+	void setIDCounters();
+
 	void addWorker(BaseWorker* worker);
 	void addPendingWorker(BaseWorker* pendingWorker);
 	void addProduct(BaseProduct* product);

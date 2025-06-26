@@ -7,6 +7,11 @@ namespace CountManager {
 	static size_t giftCardCounter = 10000;
 	static size_t transactionsCounter = 1;
 
+	static void setWorkerIDCounter(const size_t ID) {
+
+		workerIDCounter = ID;
+	}
+
 	static size_t getWorkerIDCounter() {
 
 		return workerIDCounter++;

@@ -4,6 +4,7 @@
 SupermarketSystem::SupermarketSystem() {
 
 	loadSupermarketDataFromFile();
+	setIDCounters();
 }
 
 SupermarketSystem::~SupermarketSystem() {
@@ -507,13 +508,19 @@ void SupermarketSystem::delete_product(const MyString& productName) {
 	cout << "Product was not found." << endl;
 }
 
-//void SupermarketSystem::load_products(const MyString& filePath) {
-//
-//}
-//
-//void SupermarketSystem::load_gift_cards(const MyString& filePath) {
-//
-//}
+//ResourceFiles/BonusData/Products.txt
+
+void SupermarketSystem::load_products(const MyString& filePath) {
+
+	SystemFileManager::Products::load(products, filePath);
+}
+
+//ResourceFiles/BonusData/GiftCards.txt
+
+void SupermarketSystem::load_gift_cards(const MyString& filePath) {
+
+	SystemFileManager::GiftCards::load(giftCards, filePath);
+}
 
 BaseWorker* SupermarketSystem::getWorkerByID(const size_t& cashierID) {
 
@@ -618,6 +625,11 @@ void SupermarketSystem::saveSupermarketDataToFile() {
 	SystemFileManager::Products::save(products);
 	SystemFileManager::Categories::save(categories);
 	SystemFileManager::GiftCards::save(giftCards);
+}
+
+void SupermarketSystem::setIDCounters() {
+
+	CountManager::setWorkerIDCounter(employees[employees.getSize() - 1]->getID() + 1);
 }
 
 void SupermarketSystem::addWorker(BaseWorker* worker) {

@@ -1,6 +1,2 @@
-MANAGER:1:Ivan:KKK:+3593:20:password
-MANAGER:2:Alice:Johnson:5551234567:42:managerPass123
-MANAGER:3:Robert:Smith:5559876543:39:secureAdmin456
-CASHIER:101:Emily:Davis:5553217890:28:cashier123:0:1:Alice Johnson:Late for shift:LOW
-CASHIER:102:James:Brown:5556541230:33:fastCash789:0:2:Robert Smith:Customer complaint:LOW:Alice Johnson:Late for shift:LOW
-CASHIER:103:Lily:Anderson:5558765432:25:pss:0:0
+MANAGER:100:Martin:Kirchev:+3593424142:20:password
+

@@ -23,6 +23,7 @@ public:
 
 	virtual bool isPossibleToBuy(const double& quantity) const = 0;
 	virtual void removeFromQuantity(const double& quantity) = 0;
+	virtual void addQuantity(const double& quantity) = 0;
 
 	virtual ProductType getType() const = 0;
 

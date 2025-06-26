@@ -21,6 +21,11 @@ void ProductByUnit::removeFromQuantity(const double& quantity) {
 	this->quantity -= quantity;
 }
 
+void ProductByUnit::addQuantity(const double& quantity) {
+
+	this->quantity += quantity;
+}
+
 ProductType ProductByUnit::getType() const {
 
 	return ProductType::BY_UNIT;

@@ -208,6 +208,63 @@ namespace SystemFileManager {
 			file.close();
 		}
 
+		static void load(Vector<BaseProduct*>& products, const MyString& filePath) {
+
+			ifstream file(filePath.c_str());
+
+			if (!file.is_open())
+				return;
+
+			MyString inputLine;
+
+			while (getline(file, inputLine)) {
+
+				Vector<MyString> input = inputLine.split(':');
+
+				MyString command = input[0];
+
+				if (command != "NEW") {
+
+					MyString name = input[1];
+					double quantity = input[2].toDouble();
+
+					for (size_t i = 0; i < products.getSize(); i++)
+					{
+						if (products[i]->getName() == name) {
+
+							products[i]->addQuantity(quantity);
+							continue;
+						}
+					}
+
+					cout << "Product was not found." << endl;
+					continue;
+
+				}
+				else if (command == "NEW") {
+
+					MyString type = input[1];
+					MyString name = input[2];
+					MyString categoryName = input[3];
+					double price = input[4].toDouble();
+
+					if (type == "BY_WEIGHT") {
+
+						double kilograms = input[5].toDouble();
+						products.push_back(new ProductByWeight(name, categoryName, price, kilograms));
+
+					}
+					else if (type == "BY_UNIT") {
+
+						size_t quantity = input[5].toInteger();
+						products.push_back(new ProductByUnit(name, categoryName, price, quantity));
+					}
+				}
+			}
+
+			file.close();
+		}
+
 		static void save(Vector<BaseProduct*>& products) {
 
 			ofstream file(productsPath.c_str());
@@ -286,9 +343,9 @@ namespace SystemFileManager {
 
 		static MyString giftCardsPath = "ResourceFiles/SavedData/GiftCards.txt";
 
-		static void load(Vector<BaseGiftCard*>& giftCards) {
+		static void load(Vector<BaseGiftCard*>& giftCards, const MyString& filePath = giftCardsPath) {
 
-			ifstream file(giftCardsPath.c_str());
+			ifstream file(filePath.c_str());
 
 			if (!file.is_open())
 				return;

@@ -1,53 +1,7 @@
-te
-tet
-et
-e
-te
-te
-login 103 helloWorld
-list_feed
-END
-login 103 helloWorld
-list_transactions
-list_transactions
-/login 103 helloWorld
-list_transactions
-login 103 helloWorld
-list_transactions
-END
-test
+login 100 password
 /help
-sell
-login 103 helloWorld
-sell
-login 103 helloWorld
-sell
-login 103 helloWorld
-sell
-login 103 helloWorld
-sell
-login 103 helloWorld
-sell
-login 103 helloWorld
-sell
-login 103 helloWorld
-sell
-login 103 helloWorld
-sell
-login 103 pss
-sell
-login 103 pss
-sell
-login 103 pss
-sell
-
-login 103 pss
-sell
-
-login 103 pss
-sell
-login 103 pss
-sell
-END
-login 103 pss
-sell
+load_products ResourceFiles/BonusData/Products.txt
+login 100 password
+list_products ResourceFiles/BonusData/Products.txt
+login 100 password
+load_products ResourceFiles/BonusData/Products.txt
