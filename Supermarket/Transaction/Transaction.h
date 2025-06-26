@@ -6,7 +6,9 @@
 
 #include "Vector.hpp"
 #include "BaseProduct.h"
-#include "BaseGiftCard.h"
+#include "SingleCategoryGiftCard.h"
+#include "MultipleCategoryGiftCard.h"
+#include "AllProductsGiftCard.h"
 
 class Transaction {
 
@@ -22,25 +24,28 @@ public:
 	size_t getID() const;
 	size_t getCashierID() const;
 
+	void useGiftCard();
 	void calculatePrice();
 	double getCurrentPrice() const;
 
-	void addProduct(BaseProduct* product,const size_t& quantity);
+	void addProduct(BaseProduct* product,const double& quantity);
 	void addGiftCard(BaseGiftCard* giftCard);
 
+	bool giftCardIsUsed() const;
+
 	Vector<BaseProduct*> getProducts() const;
-	Vector<size_t> getQuantities() const;
+	Vector<double> getQuantities() const;
 	std::ostream& timestampToStream(std::ostream& os) const;
 
 	void printInfo();
 
 private:
 
-	size_t ID;
-	size_t cashierID;
-	double price;
+	size_t ID = 0;
+	size_t cashierID = 0;
+	double price = 0;
 	Vector<BaseProduct*> products;
-	Vector<size_t> quantities;
+	Vector<double> quantities;
 	BaseGiftCard* giftCard;
 	std::time_t timestamp;
 	

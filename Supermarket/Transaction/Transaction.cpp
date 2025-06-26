@@ -14,10 +14,65 @@ size_t Transaction::getCashierID() const {
 	return cashierID;
 }
 
+void Transaction::useGiftCard() {
+
+	if (giftCard == nullptr) {
+
+		cout << endl;
+		cout << "Gift card was not found." << endl;
+		return;
+	}
+
+	size_t productsSize = products.getSize();
+	double tempPrice = 0;
+
+	for (size_t i = 0; i < productsSize; i++)
+	{
+		double currentProductPrice = 0;
+
+		if (products[i]->getType() == ProductType::BY_UNIT) {
+
+			currentProductPrice += (products[i]->getPrice() * quantities[i]);
+		}
+
+		if (products[i]->getType() == ProductType::BY_WEIGHT) {
+
+			currentProductPrice += (products[i]->getPrice()) * (quantities[i] / 1000.0);
+		}
+
+		if (giftCard->getType() == GiftCardType::SINGLE_CATEGORY) {
+
+			SingleCategoryGiftCard* g = dynamic_cast<SingleCategoryGiftCard*>(giftCard);
+
+			if (products[i]->getCategoryName() == g->getCategoryName())
+				currentProductPrice -= (currentProductPrice * (giftCard->getPercentage() / 100.0));
+
+		}
+		else if (giftCard->getType() == GiftCardType::MULTIPLE_CATEGORY) {
+
+			MultipleCategoryGiftCard* g = dynamic_cast<MultipleCategoryGiftCard*>(giftCard);
+
+			if (g->checkForCategory(products[i]->getCategoryName()))
+				currentProductPrice -= (currentProductPrice * (g->getPercentage() / 100.0));
+
+		}
+		else if (giftCard->getType() == GiftCardType::ALL_PRODUCTS) {
+
+			currentProductPrice -= (currentProductPrice * (giftCard->getPercentage() / 100.0));
+
+		}
+
+		tempPrice += currentProductPrice;
+	}
+
+	price = tempPrice;
+
+	cout << giftCard->getPercentage() << "% applied! ";
+}
+
 void Transaction::calculatePrice() {
 
 	size_t productsSize = products.getSize();
-	bool useGiftCard = (giftCard != nullptr);
 	double tempPrice = 0;
 
 	for (size_t i = 0; i < productsSize; i++)
@@ -31,7 +86,7 @@ void Transaction::calculatePrice() {
 
 		if (products[i]->getType() == ProductType::BY_WEIGHT) {
 
-			tempPrice += (products[i]->getPrice()) * (quantities[i] / 1000.0);
+			tempPrice += (products[i]->getPrice() * quantities[i]);
 			continue;
 		}
 	}
@@ -41,10 +96,10 @@ void Transaction::calculatePrice() {
 
 double Transaction::getCurrentPrice() const {
 
-	return IntegerFunction::round(price);
+	return price;
 }
 
-void Transaction::addProduct(BaseProduct* product, const size_t& quantity) {
+void Transaction::addProduct(BaseProduct* product, const double& quantity) {
 
 	this->products.push_back(product);
 	this->quantities.push_back(quantity);
@@ -55,12 +110,16 @@ void Transaction::addGiftCard(BaseGiftCard* giftCard) {
 	this->giftCard = giftCard;
 }
 
+bool Transaction::giftCardIsUsed() const {
+	return this->giftCard != nullptr;
+}
+
 Vector<BaseProduct*> Transaction::getProducts() const {
 
 	return products;
 }
 
-Vector<size_t> Transaction::getQuantities() const {
+Vector<double> Transaction::getQuantities() const {
 
 	return quantities;
 }

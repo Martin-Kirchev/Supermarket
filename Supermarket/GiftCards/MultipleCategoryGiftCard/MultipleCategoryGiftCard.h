@@ -17,6 +17,7 @@ public:
 	MultipleCategoryGiftCard& operator=(const MultipleCategoryGiftCard& other) = default;
 	friend std::ostream& operator<<(std::ostream& os, const MultipleCategoryGiftCard& giftCard);
 
+	bool checkForCategory(const MyString& category);
 	GiftCardType getType() const override;
 
 private:

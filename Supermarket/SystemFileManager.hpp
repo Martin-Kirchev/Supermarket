@@ -366,6 +366,38 @@ namespace SystemFileManager {
 			file.close();
 		}
 	}
+
+	namespace Receipt {
+
+		static MyString receiptPath = "ResourceFiles/Receipts/receipt_";
+
+		static void print(const size_t& countOfReceipts) {
+
+			for (size_t i = 1; i < countOfReceipts; i++)
+			{
+				MyString path = receiptPath;
+				path.push(i);
+				path.push(".txt");
+
+				ifstream file(path.c_str());
+
+				if (!file.is_open())
+					continue;
+
+				MyString inputLine;
+
+				while (getline(file, inputLine)) {
+
+					cout << inputLine << endl;
+				}
+				cout << endl;
+
+
+				file.close();
+			}
+		}
+	}
+
 	namespace Feed {
 
 		static MyString feedPath = "ResourceFiles/Feed/feed.txt";

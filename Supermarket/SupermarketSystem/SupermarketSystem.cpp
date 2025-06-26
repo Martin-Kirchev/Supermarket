@@ -138,21 +138,16 @@ void SupermarketSystem::list_feed() {
 
 void SupermarketSystem::list_transactions() {
 
-	size_t transactionsCount = transactions.getSize();
-	for (size_t i = 0; i < transactionsCount; i++)
-	{
-		transactions[i].printInfo();
-		cout << endl;
-	}
+	SystemFileManager::Receipt::print(CountManager::peekTransactionsCounter());
 }
 
 void SupermarketSystem::sell() {
 
 	Transaction transaction = Transaction(CountManager::getTransactionsCounter(), currentWorker->getID());
 
-	MyString command;
-
 	while (true) {
+
+		MyString command;
 
 		cout << "Products:" << endl;
 
@@ -165,57 +160,74 @@ void SupermarketSystem::sell() {
 		}
 
 		cout << endl;
-		cout << "Transaction ID: " << CountManager::getTransactionsCounter() << endl;
+		cout << "Transaction ID: " << transaction.getID() << endl;
 
 		transaction.calculatePrice();
-		cout << "Price: " << transaction.getCurrentPrice() << endl;
+		cout << "Price: " << transaction.getCurrentPrice() << " BGN" << endl;
 		cout << endl;
 
-
 		cout << "Enter product ID to sell. Enter END to end the transaction:" << endl;
-		cin >> command;
+		getline(cin, command);
+
+		if (command == "END")
+			break;
 
 		int index = command.toInteger();
 
 		if (index == -1)
 			continue;
 
-		if (command == "END")
-			break;
-
-		size_t quantity;
 		cout << "Enter quantity:" << endl;
-		cin >> quantity;
+		getline(cin, command);
 
-		transaction.addProduct(products[index], quantity);
+		double quantity = command.toDouble();
 
+		if (index == -1)
+			continue;
+
+		if (products[index - 1]->isPossibleToBuy(quantity)) {
+
+			products[index - 1]->removeFromQuantity(quantity);
+			transaction.addProduct(products[index - 1], quantity);
+		}
+		else {
+
+			cout << endl;
+			cout << "There is not enough quantity of this product for you to buy." << endl;
+		}
 
 		cout << endl;
-		cout << "---------" << endl;
+		cout << "------------------" << endl;
 		cout << endl;
 	}
 
-	char answer;
-	cout << "Add voucher : (Y / N) ?" << endl;
-	cin >> answer;
+	transaction.calculatePrice();
 
-	switch (answer) {
+	MyString answer;
+	cout << "Add voucher : (Y / N) ?" << endl;
+	getline(cin, answer);
+
+	switch (*answer.c_str()) {
 
 	case 'Y':
 
 		MyString giftCardCode;
 		cout << "Enter voucher:" << endl;
-		cin >> giftCardCode;
+		getline(cin, giftCardCode);
 
 		transaction.addGiftCard(getGiftCardByCode(giftCardCode));
+		transaction.useGiftCard();
 
 		break;
 	}
 
-	transaction.calculatePrice();
-	cout << "Total: " << transaction.getCurrentPrice() << endl;
+	cout << endl;
+	cout << "Transaction complete!" << endl;
+	cout << endl;
+	cout << "Total: " << transaction.getCurrentPrice() << " BGN" << endl;
 
 	ReceiptCreator::saveToFile(transaction);
+	cout << "Receipt saved as : receipt_" << transaction.getID() << ".txt" << endl;
 }
 
 void SupermarketSystem::list_pending() {
@@ -241,13 +253,17 @@ void SupermarketSystem::approve(const size_t& cashierID, const MyString& special
 
 		if (pendingEmployees[i]->getID() == cashierID) {
 
-			employees.push_back(pendingEmployees[i]);
+			employees.push_back(new Cashier(pendingEmployees[i]->getID(), pendingEmployees[i]->getFirstName(), pendingEmployees[i]->getLastName(),
+				pendingEmployees[i]->getPhoneNumber(), pendingEmployees[i]->getAge(), pendingEmployees[i]->getPassword()));
+
 			pendingEmployees.remove(i);
 
+			cout << "Cashier was approved." << endl;
 			break;
 		}
 	}
 
+	cout << "Pending cashier was not found." << endl;
 }
 
 void SupermarketSystem::decline(const size_t& cashierID, const MyString& specialCode) {
@@ -264,16 +280,20 @@ void SupermarketSystem::decline(const size_t& cashierID, const MyString& special
 		if (pendingEmployees[i]->getID() == cashierID) {
 
 			pendingEmployees.remove(i);
+
+			cout << "Cashier was declined." << endl;
 			break;
 		}
 	}
 
+	cout << "Pending cashier was not found." << endl;
 }
 
 void SupermarketSystem::list_warned_cashiers(const size_t& points) {
 
-	size_t workersSize = employees.getSize();
+	cout << "List of warning cashiers with more than " << points << " warning points:" << endl;
 
+	size_t workersSize = employees.getSize();
 	for (size_t i = 0; i < workersSize; i++) {
 
 		if (employees[i]->getRole() != WorkerType::CASHIER)
@@ -291,12 +311,15 @@ void SupermarketSystem::warn_cashier(const size_t& cashierID, const size_t& poin
 
 	BaseWorker* cashier = getCashierByID(cashierID);
 
-	if (cashier == nullptr)
+	if (cashier == nullptr) {
+
+		cout << "Cashier was not found." << endl;
 		return;
+	}
 
 	MyString description;
 	cout << "Enter warning description:" << endl;
-	cin >> description;
+	getline(cin, description);
 
 	MyString sender = currentWorker->getFirstName() + " " + currentWorker->getLastName();
 	WarningLevel warningLevel;
@@ -315,6 +338,7 @@ void SupermarketSystem::warn_cashier(const size_t& cashierID, const size_t& poin
 	}
 	else {
 
+		cout << "Invalid amount of points!" << endl;
 		return;
 	}
 
@@ -322,6 +346,8 @@ void SupermarketSystem::warn_cashier(const size_t& cashierID, const size_t& poin
 
 	Cashier* c = dynamic_cast<Cashier*>(cashier);
 	c->addWarning(warning);
+
+	cout << "Cashier was warned." << endl;
 }
 
 void SupermarketSystem::promote_cashier(const size_t& cashierID, const MyString& specialCode) {
@@ -331,7 +357,6 @@ void SupermarketSystem::promote_cashier(const size_t& cashierID, const MyString&
 	if (!manager->checkCode(specialCode))
 		return;
 
-
 	size_t workersSize = employees.getSize();
 
 	for (size_t i = 0; i < workersSize; i++) {
@@ -339,15 +364,22 @@ void SupermarketSystem::promote_cashier(const size_t& cashierID, const MyString&
 		if (employees[i]->getID() != cashierID)
 			continue;
 
-		if (employees[i]->getRole() != WorkerType::CASHIER)
+		if (employees[i]->getRole() != WorkerType::CASHIER) {
+
+			cout << "Employee is not a cashier!" << endl;
 			break;
+		}
 
 		MyString specialCode = CodeGenerator::generateManagerCode();
 		addWorker(new Manager(employees[i]->getID(), employees[i]->getFirstName(), employees[i]->getLastName(), employees[i]->getPhoneNumber(), employees[i]->getAge(), employees[i]->getPassword(), specialCode));
 
 		employees.remove(i);
-		break;
+
+		cout << "Cashier was promoted to a manager." << endl;
+		return;
 	}
+
+	cout << "Cashier was not found." << endl;
 }
 
 void SupermarketSystem::fire_cashier(const size_t& cashierID, const MyString& specialCode) {
@@ -364,85 +396,124 @@ void SupermarketSystem::fire_cashier(const size_t& cashierID, const MyString& sp
 		if (employees[i]->getID() != cashierID)
 			continue;
 
-		if (employees[i]->getRole() != WorkerType::CASHIER)
+		if (employees[i]->getRole() != WorkerType::CASHIER) {
+
+			cout << "Employee is not a cashier!" << endl;
 			break;
+		}
 
 		employees.remove(i);
-		break;
+
+		cout << "Cashier was fired." << endl;
+		return;
 	}
+
+	cout << "Cashier was not found." << endl;
 }
 
 void SupermarketSystem::add_category(const MyString& categoryName, const MyString& categoryDescription) {
 
-	if (getCategoryByName(categoryName) != nullptr)
+	if (getCategoryByName(categoryName) != nullptr) {
+
+		cout << "This category already exists!" << endl;
 		return;
+	}
 
 	addCategory(new Category(categoryName, categoryDescription));
+	cout << "Category was added!" << endl;
 }
 
-void SupermarketSystem::delete_category(const size_t& categoryID) {
+void SupermarketSystem::delete_category(const MyString& categoryName) {
 
 	size_t categoriesSize = categories.getSize();
 
 	for (size_t i = 0; i < categoriesSize; i++) {
 
-		if (i == categoryID) {
+		if (categories[i]->getName() == categoryName) {
 
 			categories.remove(i);
-			break;
+
+			cout << "Category was removed" << endl;
+			return;
 		}
 	}
+
+	cout << "Category was not found." << endl;
 }
 
 void SupermarketSystem::add_product(const ProductType& productType) {
 
-	MyString name;
-	cin >> name;
+	MyString productName;
+	getline(cin, productName);
+
+	if (getCategoryByName(productName) != nullptr) {
+
+		cout << "This product already exists!" << endl;
+		return;
+	}
 
 	MyString categoryName;
-	cin >> categoryName;
+	getline(cin, categoryName);
 
-	if (categoryName == nullptr)
+	if (getCategoryByName(categoryName) == nullptr) {
+
+		cout << "Category was not found." << endl;
 		return;
-
+	}
+		
 	double price;
-	cin >> price;
-
+	getline(cin, price);
 
 	if (productType == ProductType::BY_UNIT) {
 
 		size_t quantity;
-		cin >> quantity;
+		getline(cin, quantity);
 
-		//addProduct(new ProductByUnit(name, );
+		addProduct(new ProductByUnit(productName, categoryName, price, quantity));
+
+		cout << "Product by unit was added." << endl;
 		return;
 	}
 
 	if (productType == ProductType::BY_WEIGHT) {
 
 		double kilograms;
-		cin >> kilograms;
+		getline(cin, kilograms);
 
-		//addProduct(new ProductByWeight(name, getCategoryByName(categoryName)->getID(), price, kilograms));
+		addProduct(new ProductByWeight(productName, categoryName, price, kilograms));
+
+		cout << "Product by weight was added." << endl;
 		return;
 	}
+
+	cout << "Incorrect product type." << endl;
 }
 
-void SupermarketSystem::delete_product(const size_t& productID) {
+void SupermarketSystem::delete_product(const MyString& productName) {
 
-	if (products.getSize() <= productID)
-		return;
+	size_t productsSize = products.getSize();
 
-	products.remove(productID);
+	for (size_t i = 0; i < productsSize; i++) {
+
+		if (products[i]->getName() == productName) {
+
+			products.remove(i);
+
+			cout << "Product was removed" << endl;
+			return;
+		}
+	}
+
+	cout << "Product was not found." << endl;
 }
 
-void SupermarketSystem::load_products(const MyString& filePath) {
-
-}
-
-void SupermarketSystem::load_gift_cards(const MyString& filePath) {
-
-}
+//void SupermarketSystem::load_products(const MyString& filePath) {
+//
+//}
+//
+//void SupermarketSystem::load_gift_cards(const MyString& filePath) {
+//
+//}
 
 BaseWorker* SupermarketSystem::getWorkerByID(const size_t& cashierID) {
 
@@ -476,14 +547,6 @@ BaseWorker* SupermarketSystem::getCashierByID(const size_t& ID) {
 	return nullptr;
 }
 
-BaseProduct* SupermarketSystem::getProductByIndex(const size_t& index) {
-
-	if (products.getSize() <= index)
-		return nullptr;
-
-	return products[index];
-}
-
 Category* SupermarketSystem::getCategoryByID(const size_t& categoryID) {
 
 	size_t categoriesSize = categories.getSize();
@@ -492,7 +555,6 @@ Category* SupermarketSystem::getCategoryByID(const size_t& categoryID) {
 
 		if (i == categoryID)
 			return categories[i];
-
 	}
 
 	return nullptr;
@@ -506,7 +568,6 @@ Category* SupermarketSystem::getCategoryByName(const MyString& categoryName) {
 
 		if (categories[i]->getName() == categoryName)
 			return categories[i];
-
 	}
 
 	return nullptr;
@@ -518,10 +579,9 @@ BaseGiftCard* SupermarketSystem::getGiftCardByCode(const MyString& code) {
 
 	for (size_t i = 0; i < giftCardSize; i++)
 	{
-		if (giftCards[i]->checkCode(code)) {
-
+		if (giftCards[i]->checkCode(code))
 			return giftCards[i];
-		}
+
 	}
 
 	return nullptr;
@@ -583,11 +643,6 @@ void SupermarketSystem::addCategory(Category* category) {
 void SupermarketSystem::addGiftCard(BaseGiftCard* giftCard) {
 
 	giftCards.push_back(giftCard);
-}
-
-void SupermarketSystem::addTransaction(const Transaction& transaction) {
-
-	transactions.push_back(transaction);
 }
 
 

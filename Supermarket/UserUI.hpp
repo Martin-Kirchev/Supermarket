@@ -213,9 +213,9 @@ public:
 
 			if (command == "delete_category") {
 
-				size_t categoryID = input[1].toInteger();
+				MyString categoryName = input[1];
 
-				system.delete_category(categoryID);
+				system.delete_category(categoryName);
 				continue;
 			}
 
@@ -234,9 +234,9 @@ public:
 
 			if (command == "delete_product") {
 
-				size_t productID = input[1].toInteger();
+				MyString productName = input[1];
 
-				system.delete_product(productID);
+				system.delete_product(productName);
 				continue;
 			}
 

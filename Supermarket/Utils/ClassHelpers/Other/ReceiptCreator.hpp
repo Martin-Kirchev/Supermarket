@@ -6,9 +6,9 @@
 #include "Transaction.h"
 #include "IntegerFunction.hpp"
 
-class ReceiptCreator {
+namespace ReceiptCreator {
 
-public:
+	static MyString ReceiptPath = "ResourceFiles/Receipts/";
 
 	static void saveToFile(const Transaction& transaction) {
 
@@ -18,7 +18,7 @@ public:
 		Vector<BaseProduct*> products = transaction.getProducts();
 		size_t productsSize = products.getSize();
 
-		Vector<size_t> quantities = transaction.getQuantities();
+		Vector<double> quantities = transaction.getQuantities();
 
 		MyString cashierID;
 		cashierID.push(transaction.getCashierID());
@@ -26,7 +26,11 @@ public:
 		MyString price;
 		price.push(IntegerFunction::round(transaction.getCurrentPrice()));
 
-		std::ofstream file("ResourceFiles/Receipts/receipt_10.txt");
+		MyString path = ReceiptPath + "receipt_";
+		path.push(transactionID);
+		path.push(".txt");
+
+		ofstream file(path.c_str());
 
 		if (!file.is_open()) {
 			return;
@@ -47,9 +51,16 @@ public:
 		{
 			file << products[i]->getName() << std::endl;
 			file << std::endl;
-			file << quantities[i] << "*" << products[i]->getPrice() << " - " << quantities[i] * products[i]->getPrice() << std::endl;
+			file << quantities[i] << "*" << products[i]->getPrice() << " - " << quantities[i] * products[i]->getPrice() << " BGN" << endl;
 			file << std::endl;
 			file << "###" << std::endl;
+			file << std::endl;
+		}
+
+		if (transaction.giftCardIsUsed()) {
+
+			file << std::endl;
+			file << "A gift card was used." << std::endl;
 			file << std::endl;
 		}
 

@@ -22,6 +22,17 @@ std::ostream& operator<<(std::ostream& os, const MultipleCategoryGiftCard& giftC
 	return os;
 }
 
+bool MultipleCategoryGiftCard::checkForCategory(const MyString& category) {
+
+	for (size_t i = 0; i < categories.getSize(); i++)
+	{
+		if (categories[i] == category)
+			return true;
+	}
+
+	return false;
+}
+
 GiftCardType MultipleCategoryGiftCard::getType() const {
 
 	return GiftCardType::MULTIPLE_CATEGORY;

@@ -45,9 +45,9 @@ public:
 	void promote_cashier(const size_t& cashierID, const MyString& specialCode);
 	void fire_cashier(const size_t& cashierID, const MyString& specialCode);
 	void add_category(const MyString& categoryName, const MyString& categoryDescription);
-	void delete_category(const size_t& categoryID);
+	void delete_category(const MyString& categoryName);
 	void add_product(const ProductType& productType);
-	void delete_product(const size_t& productID);
+	void delete_product(const MyString& productName);
 	void load_products(const MyString& filePath);
 	void load_gift_cards(const MyString& filePath);
 
@@ -64,11 +64,9 @@ private:
 	Vector<BaseProduct*> products;
 	Vector<Category*> categories;
 	Vector<BaseGiftCard*> giftCards;
-	Vector<Transaction> transactions;
 
 	BaseWorker* getWorkerByID(const size_t& ID);
 	BaseWorker* getCashierByID(const size_t& ID);
-	BaseProduct* getProductByIndex(const size_t& ID);
 	Category* getCategoryByID(const size_t& categoryID);
 	Category* getCategoryByName(const MyString& categoryName);
 	BaseGiftCard* getGiftCardByCode(const MyString& ID);
@@ -81,6 +79,5 @@ private:
 	void addProduct(BaseProduct* product);
 	void addCategory(Category* category);
 	void addGiftCard(BaseGiftCard* giftCard);
-	void addTransaction(const Transaction& transaction);
 
 };

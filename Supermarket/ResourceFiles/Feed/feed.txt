@@ -7,3 +7,47 @@ te
 login 103 helloWorld
 list_feed
 END
+login 103 helloWorld
+list_transactions
+list_transactions
+/login 103 helloWorld
+list_transactions
+login 103 helloWorld
+list_transactions
+END
+test
+/help
+sell
+login 103 helloWorld
+sell
+login 103 helloWorld
+sell
+login 103 helloWorld
+sell
+login 103 helloWorld
+sell
+login 103 helloWorld
+sell
+login 103 helloWorld
+sell
+login 103 helloWorld
+sell
+login 103 helloWorld
+sell
+login 103 pss
+sell
+login 103 pss
+sell
+login 103 pss
+sell
+
+login 103 pss
+sell
+
+login 103 pss
+sell
+login 103 pss
+sell
+END
+login 103 pss
+sell

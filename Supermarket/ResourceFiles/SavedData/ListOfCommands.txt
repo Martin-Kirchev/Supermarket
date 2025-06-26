@@ -27,8 +27,8 @@ promote_cashier <cashierID> <specialCode>
 fire_cashier <cashierID> <specialCode>
 add_category <categoryName> <categoryDescription>
 add_product <productType>
-delete_category <categoryID>
-delete_product <productID>
+delete_category <categoryName>
+delete_product <productName>
 load_products <filePath>
 load_gift_cards <filePath>
 

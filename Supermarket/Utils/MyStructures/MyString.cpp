@@ -104,6 +104,8 @@ double MyString::toDouble() const {
 
 		result = result * 10 + (this->data[i] - '0');
 	}
+
+	return result;
 }
 
 MyString MyString::toMyString(size_t num)
@@ -355,4 +357,20 @@ std::istream& getline(std::istream& is, MyString& line, char delimiter)
 std::istream& getline(std::istream& is, MyString& line)
 {
 	return getline(is, line, '\n');
+}
+
+std::istream& getline(std::istream& is, const size_t& line)
+{
+	MyString str;
+	str.push(line);
+
+	return getline(is, str, '\n');
+}
+
+std::istream& getline(std::istream& is, const double& line)
+{
+	MyString str;
+	str.push(line);
+
+	return getline(is, str, '\n');
 }

@@ -75,3 +75,5 @@ bool operator!=(const MyString& lhs, const MyString& rhs);
 
 std::istream& getline(std::istream& is, MyString& str, char delim);
 std::istream& getline(std::istream& is, MyString& str);
+std::istream& getline(std::istream& is,const size_t& str);
+std::istream& getline(std::istream& is,const double& str);

@@ -1,0 +1,17 @@
+RECEIPT
+
+TRANSACTION_ID: 1
+
+CASHIER_ID: 103
+
+26.06.2025 11:40 
+
+------------------------------
+
+Banana
+
+50*3.5 - 175 BGN
+
+###
+
+TOTAL: 175.00 BGN
